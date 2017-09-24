@@ -4,6 +4,10 @@ import mapProps from './mapProps'
 import setDisplayName from './setDisplayName'
 import wrapDisplayName from './wrapDisplayName'
 
+/**
+ * @description Renames multiple props, using a map of old prop names to new prop names.
+ */
+
 const { keys } = Object
 
 const mapKeys = (obj, func) =>

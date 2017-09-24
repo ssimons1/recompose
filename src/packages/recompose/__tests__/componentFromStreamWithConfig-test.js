@@ -6,6 +6,10 @@ import mostConfig from '../mostObservableConfig'
 import rxjsConfig from '../rxjsObservableConfig'
 import { componentFromStreamWithConfig } from '../componentFromStream'
 
+/**
+ * @description Alternative to componentFromStream() that accepts an observable config and returns a customized componentFromStream() which uses the specified observable library. This option is recommended if you want to avoid global state with setObservableConfig().
+ */
+
 test('componentFromStreamWithConfig creates a stream with the correct stream type.', () => {
   const MostComponent = componentFromStreamWithConfig(mostConfig)(props$ => {
     expect(props$ instanceof MostStream).toBe(true)

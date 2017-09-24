@@ -5,6 +5,12 @@ import createEagerFactory from './createEagerFactory'
 import shallowEqual from './shallowEqual'
 import mapValues from './utils/mapValues'
 
+/**
+ * 
+ * @param {object} initialState 
+ * @param {*} stateUpdaters 
+ */
+
 const withStateHandlers = (initialState, stateUpdaters) => BaseComponent => {
   const factory = createEagerFactory(BaseComponent)
 

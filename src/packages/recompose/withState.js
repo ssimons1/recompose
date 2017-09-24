@@ -3,6 +3,13 @@ import setDisplayName from './setDisplayName'
 import wrapDisplayName from './wrapDisplayName'
 import createEagerFactory from './createEagerFactory'
 
+/**
+ * @description Passes two additional props to the base component: a state value, and a function to update that state value.
+ * @param {string} stateName 
+ * @param {string} stateUpdaterName 
+ * @param initialState 
+ */
+
 const withState = (
   stateName,
   stateUpdaterName,

@@ -3,6 +3,12 @@ import mapProps from './mapProps'
 import setDisplayName from './setDisplayName'
 import wrapDisplayName from './wrapDisplayName'
 
+/**
+ * @description Renames a single prop.
+ * @param {string} oldName 
+ * @param {string} newName 
+ */
+
 const renameProp = (oldName, newName) => {
   const hoc = mapProps(props => ({
     ...omit(props, [oldName]),
