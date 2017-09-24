@@ -2,6 +2,11 @@ import $$observable from 'symbol-observable'
 import { createChangeEmitter } from 'change-emitter'
 import { config as globalConfig } from './setObservableConfig'
 
+/**
+ * @description Returns an object with properties handler and stream. stream is an observable sequence, and handler is a function that pushes new values onto the sequence. Useful for creating event handlers like onClick.
+ * 
+ */
+
 export const createEventHandlerWithConfig = config => () => {
   const emitter = createChangeEmitter()
   const stream = config.fromESObservable({
