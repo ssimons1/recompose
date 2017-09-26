@@ -3,8 +3,8 @@ import setDisplayName from './setDisplayName'
 import mapProps from './mapProps'
 
 /**
- * @description Like [mapProps()](http://www.bitsrc.io/recompose/recompose/components/map-props), except the newly created props are merged with the owner props.
- * Instead of a function, you can also pass a props object directly. In this form, it is similar to defaultProps(), except the provided props take precedence over props from the owner.
+ * @description Like [mapProps()](http://www.bitsrc.io/recompose/recompose/higher-order-components/map-props), except the newly created props are merged with the owner props.
+ * Instead of a function, you can also pass a props object directly. In this form, it is similar to [defaultProps()](http://www.bitsrc.io/recompose/recompose/higher-order-components/default-props), except the provided props take precedence over props from the owner.
  * @param {object} input 
  */
 

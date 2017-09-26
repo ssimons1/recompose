@@ -3,7 +3,9 @@ import isReferentiallyTransparentFunctionComponent from './isReferentiallyTransp
 
 /**
  * @description The factory form of [createEagerElement()](http://www.bitsrc.io/recompose/recompose/utils/create-eager-element). Given a component, it returns a factory.
- * @param {*} type 
+ * @param {ReactClass | ReactFunctionalComponent | string} type
+ * @param {object} p
+ * @param {ReactNode} c
  */
 
 const createFactory = type => {

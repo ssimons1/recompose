@@ -1,3 +1,16 @@
+/**
+ * @description Sets a global observable transform that is applied automatically.
+ * @example
+ * import Rx from 'rxjs'
+ * import { setObservableConfig } from 'recompose'
+ * 
+ * setObservableConfig({
+ *   // Converts a plain ES observable to an RxJS 5 observable
+ *   fromESObservable: Rx.Observable.from
+ * })
+ */
+
+
 let _config = {
   fromESObservable: null,
   toESObservable: null,

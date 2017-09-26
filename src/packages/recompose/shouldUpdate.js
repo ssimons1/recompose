@@ -5,7 +5,7 @@ import createEagerFactory from './createEagerFactory'
 
 /**
  * @description Higher-order component version of shouldComponentUpdate(). The test function accepts both the current props and the next props.
- * @param test 
+ * @param {object} test
  */
 
 const shouldUpdate = test => BaseComponent => {

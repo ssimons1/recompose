@@ -1,6 +1,6 @@
 /**
  * @description Returns the display name of a React component. Falls back to 'Component'.
- * @param Component 
+ * @param {ReactClass | ReactFunctionalComponent} Component 
  */
 
 const getDisplayName = Component => {

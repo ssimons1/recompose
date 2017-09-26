@@ -6,6 +6,7 @@ import wrapDisplayName from './wrapDisplayName'
 
 /**
  * @description Renames multiple props, using a map of old prop names to new prop names.
+ * @param {object} nameMap
  */
 
 const { keys } = Object

@@ -3,7 +3,7 @@ import wrapDisplayName from './wrapDisplayName'
 import createEagerFactory from './createEagerFactory'
 
 /**
- * @description Gets values from context and passes them along as props. Use along with [withContext()](http://www.bitsrc.io/recompose/recompose/components/with-context).
+ * @description Gets values from context and passes them along as props. Use along with [withContext()](http://www.bitsrc.io/recompose/recompose/higher-order-components/with-context).
  * @param {object} contextTypes 
  */
 

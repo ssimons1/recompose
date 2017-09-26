@@ -5,6 +5,13 @@ import { config as globalConfig } from './setObservableConfig'
 
 /**
  * @description Creates a React component by mapping an observable stream of props to a stream of React nodes (vdom).
+ * You can think of propsToReactNode as a function f such that
+ *
+ * const vdom$ = f(props$)
+ * 
+ * where props$ is a stream of props and vdom$ is a stream of React nodes. This formulation similar to the popular notion of React views as a function, often communicated as
+ * 
+ * v = f(d)
  * @example
  * const Counter = componentFromStream(props$ => {
  *   const { handler: increment, stream: increment$ } = createEventHandler()

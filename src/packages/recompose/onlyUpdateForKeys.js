@@ -5,7 +5,7 @@ import wrapDisplayName from './wrapDisplayName'
 import pick from './utils/pick'
 
 /**
- * @description Prevents the component from updating unless a prop corresponding to one of the given keys has updated. Uses [shallowEqual()](http://www.bitsrc.io/recompose/recompose/components/shallow-equal) to test for changes.
+ * @description Prevents the component from updating unless a prop corresponding to one of the given keys has updated. Uses [shallowEqual()](http://www.bitsrc.io/recompose/recompose/higher-order-components/shallow-equal) to test for changes.
  * @param {array} propKeys 
  * @example
  * 

@@ -6,10 +6,6 @@ import { mapPropsStreamWithConfig } from '../'
 import rxConfig from '../rxjsObservableConfig'
 import mostConfig from '../mostObservableConfig'
 
-/**
- * @description Alternative to [mapPropsStream()](http://www.bitsrc.io/recompose/recompose/components/map-props-stream) that accepts a observable config and returns a customized [mapPropsStream()](http://www.bitsrc.io/recompose/recompose/components/map-props-stream) that uses the specified observable library. See [componentFromStreamWithConfig()](http://www.bitsrc.io/recompose/recompose/components/component-from-stream-with-config).
- */
-
 // Most of mapPropsStreamConfig's functionality is covered by componentFromStream
 test('mapPropsStreamWithConfig creates a higher-order component from a stream and a observable config', () => {
   const Double = mapPropsStreamWithConfig(rxConfig)(props$ =>

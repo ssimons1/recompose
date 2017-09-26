@@ -4,7 +4,7 @@ import setDisplayName from './setDisplayName'
 import wrapDisplayName from './wrapDisplayName'
 
 /**
- * @description Prevents the component from updating unless a prop has changed. Uses [shallowEqual()](http://www.bitsrc.io/recompose/recompose/components/shallow-equal) to test for changes.
+ * @description Prevents the component from updating unless a prop has changed. Uses [shallowEqual()](http://www.bitsrc.io/recompose/recompose/higher-order-components/shallow-equal) to test for changes.
  * 
  */
 
