@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { renderComponent, withState, compose, branch } from '../'
+import { renderComponent, withState, compose, branch } from '../renderComponent'
 
 test('renderComponent always renders the given component', () => {
   const componentA = sinon.spy(() => null)

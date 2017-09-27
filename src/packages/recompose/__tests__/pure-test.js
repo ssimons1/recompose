@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { pure, compose, withState } from '../'
+import { pure, compose, withState } from '../pure'
 import { countRenders } from './utils'
 
 test('pure implements shouldComponentUpdate() using shallowEqual()', () => {

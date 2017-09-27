@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { withProps, renameProps, compose } from '../'
+import { withProps, renameProps, compose } from '../renameProps'
 
 test('renameProps renames props', () => {
   const StringConcat = compose(

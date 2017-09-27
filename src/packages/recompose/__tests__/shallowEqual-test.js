@@ -1,4 +1,4 @@
-import { shallowEqual } from '../'
+import { shallowEqual } from '../shallowEqual'
 
 // Adapted from https://github.com/rackt/react-redux/blob/master/test/utils/shallowEqual.spec.js
 test('shallowEqual returns true if arguments are equal, without comparing properties', () => {

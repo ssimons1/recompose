@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { defaultProps } from '../'
+import { defaultProps } from '../defaultProps'
 
 test('defaultProps passes additional props to base component', () => {
   const DoReMi = defaultProps({ 'data-so': 'do', 'data-la': 'fa' })('div')

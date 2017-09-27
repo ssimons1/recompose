@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import sinon from 'sinon'
 import { mount, shallow } from 'enzyme'
-import { onlyUpdateForPropTypes, compose, withState, setPropTypes } from '../'
+import {
+  onlyUpdateForPropTypes,
+  compose,
+  withState,
+  setPropTypes,
+} from '../onlyUpdateForPropTypes'
 
 test('onlyUpdateForPropTypes only updates for props specified in propTypes', () => {
   const component = sinon.spy(() => null)

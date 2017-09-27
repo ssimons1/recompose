@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { nest, setDisplayName, toClass } from '../'
+import { nest, setDisplayName, toClass } from '../nest'
 
 test('nest nests components from outer to inner', () => {
   const A = setDisplayName('A')(toClass('div'))

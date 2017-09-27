@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { hoistStatics, mapProps } from '../'
+import { hoistStatics, mapProps } from '../hoistStatics'
 
 test('copies non-React static properties from base component to new component', () => {
   const BaseComponent = sinon.spy(() => null)

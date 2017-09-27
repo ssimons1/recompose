@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { onlyUpdateForKeys, compose, withState } from '../'
+import { onlyUpdateForKeys, compose, withState } from '../onlyUpdateForKeys'
 
 test('onlyUpdateForKeys implements shouldComponentUpdate()', () => {
   const component = sinon.spy(() => null)

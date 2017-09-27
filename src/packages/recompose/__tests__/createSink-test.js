@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { createSink, compose, withState, mapProps } from '../'
+import { createSink, compose, withState, mapProps } from '../createSink'
 
 test('createSink creates a React component that fires a callback when receiving new props', () => {
   const spy = sinon.spy()

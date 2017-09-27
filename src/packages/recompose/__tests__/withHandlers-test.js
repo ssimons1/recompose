@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { withHandlers, withState, compose } from '../'
+import { withHandlers, withState, compose } from '../withHandlers'
 
 test('withHandlers passes handlers to base component', () => {
   let submittedFormValue
@@ -17,17 +17,15 @@ test('withHandlers passes handlers to base component', () => {
     })
   )
 
-  const Form = enhanceForm(({ value, onChange, onSubmit }) =>
+  const Form = enhanceForm(({ value, onChange, onSubmit }) => (
     <form onSubmit={onSubmit}>
       <label>
         Value
         <input type="text" value={value} onChange={onChange} />
       </label>
-      <p>
-        {value}
-      </p>
+      <p>{value}</p>
     </form>
-  )
+  ))
 
   const wrapper = mount(<Form />)
   const input = wrapper.find('input')

@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { flattenProp } from '../'
+import { flattenProp } from '../flattenProp'
 
 test('flattenProps flattens an object prop and spreads it into the top-level props object', () => {
   const Counter = flattenProp('data-state')('div')
