@@ -752,15 +752,20 @@
         "mainFile": "src/packages/recompose/__tests__/utils.js",
         "origin": "AUTHORED"
     },
-    "utilities/index": {
+    "higher-order-components/with-props-on-change": {
         "files": [
             {
-                "relativePath": "src/packages/recompose/index.js",
+                "relativePath": "src/packages/recompose/withPropsOnChange.js",
                 "test": false,
-                "name": "index.js"
+                "name": "withPropsOnChange.js"
+            },
+            {
+                "relativePath": "src/packages/recompose/__tests__/withPropsOnChange-test.js",
+                "test": true,
+                "name": "withPropsOnChange-test.js"
             }
         ],
-        "origin": "AUTHORED",
-        "mainFile": "src/packages/recompose/index.js"
+        "mainFile": "src/packages/recompose/withPropsOnChange.js",
+        "origin": "AUTHORED"
     }
 }
