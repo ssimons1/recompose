@@ -4,6 +4,7 @@ import wrapDisplayName from './wrapDisplayName'
 import createEagerFactory from './createEagerFactory'
 
 /**
+ * @name withState
  * @description Passes two additional props to the base component: a state value, and a function to update that state value.
  * The state updater has the following signature:
  * stateUpdater<T>((prevValue: T) => T, ?callback: Function): void

@@ -4,6 +4,7 @@ import wrapDisplayName from './wrapDisplayName'
 import createEagerFactory from './createEagerFactory'
 
 /**
+ * @name shouldUpdate
  * @description Higher-order component version of shouldComponentUpdate(). The test function accepts both the current props and the next props.
  * @param {object} test
  */

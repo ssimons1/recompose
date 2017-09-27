@@ -4,6 +4,7 @@ import wrapDisplayName from './wrapDisplayName'
 import createEagerFactory from './createEagerFactory'
 
 /**
+ * @name withContext
  * @description Provides context to the component's children. childContextTypes is an object of React prop types. getChildContext() is a function that returns the child context. Use along with [getContext()](http://www.bitsrc.io/recompose/recompose/higher-order-components/get-context).
  * @param {object} childContextTypes 
  * @param {object} getChildContext 

@@ -3,6 +3,7 @@ import wrapDisplayName from './wrapDisplayName'
 import createEagerFactory from './createEagerFactory'
 
 /**
+ * @name flattenProp
  * @description Flattens a prop so that its fields are spread out into the props object.
  * @param {string} propName 
  * @example

@@ -1,4 +1,5 @@
 /**
+ * @name setObservableConfig
  * @description Sets a global observable transform that is applied automatically.
  * @example
  * import Rx from 'rxjs'
@@ -9,7 +10,6 @@
  *   fromESObservable: Rx.Observable.from
  * })
  */
-
 
 let _config = {
   fromESObservable: null,

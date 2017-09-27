@@ -5,6 +5,7 @@ import wrapDisplayName from './wrapDisplayName'
 import createEagerFactory from './createEagerFactory'
 
 /**
+ * @name lifecycle
  * @description A higher-order component version of React.Component(). It supports the entire Component API, except the render() method, which is implemented by default (and overridden if specified; an error will be logged to the console). You should use this helper as an escape hatch, in case you need to access component lifecycle methods.
  * Any state changes made in a lifecycle method, by using setState, will be propagated to the wrapped component as props.
  * @param {object} spec 

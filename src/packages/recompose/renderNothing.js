@@ -1,6 +1,7 @@
 import { Component } from 'react'
 
 /**
+ * @name renderNothing
  * @description A higher-order component that always renders null.
  * @example
  * This is useful in combination with another helper that expects a higher-order component, like [branch()](http://www.bitsrc.io/recompose/recompose/higher-order-components/branch):

@@ -4,6 +4,7 @@ import wrapDisplayName from './wrapDisplayName'
 import createEagerFactory from './createEagerFactory'
 
 /**
+ * @name withReducer
  * @description Similar to [withState()](http://www.bitsrc.io/recompose/recompose/higher-order-components/with-state), but state updates are applied using a reducer function. A reducer is a function that receives a state and an action, and returns a new state.
  * Passes two additional props to the base component: a state value, and a dispatch method. The dispatch method sends an action to the reducer, and the new state is applied.
  * @param {string} stateName 

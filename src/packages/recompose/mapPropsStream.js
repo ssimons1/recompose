@@ -6,9 +6,8 @@ import wrapDisplayName from './wrapDisplayName'
 import { config as globalConfig } from './setObservableConfig'
 
 /**
- * @description A higher-order component version of [componentFromStream()](http://www.bitsrc.io/recompose/recompose/higher-order-components/component-from-stream) — accepts a function that maps an observable stream of owner props to a stream of child props, rather than directly to a stream of React nodes. The child props are then passed to a base component.
- * You may want to use this version to interoperate with other Recompose higher-order component helpers.
- * mapPropsStreamWithConfig() is an alternative to mapPropsStream() that accepts a observable config and returns a customized mapPropsStream() that uses the specified observable library. See componentFromStreamWithConfig() above.
+ * @name mapPropsStreamWithConfig
+ * @description mapPropsStreamWithConfig() is an alternative to mapPropsStream() that accepts a observable config and returns a customized mapPropsStream() that uses the specified observable library. See componentFromStreamWithConfig() above.
  * @example 
  * const enhance = mapPropsStream(props$ => {
  *   const timeElapsed$ = Observable.interval(1000)
@@ -22,7 +21,6 @@ import { config as globalConfig } from './setObservableConfig'
  *   <div>Time elapsed: {timeElapsed}</div>
  * )
  * @param {object} config
- * @param {function} transform
  * 
  */
 
@@ -53,6 +51,14 @@ export const mapPropsStreamWithConfig = config => {
     }))
   }
 }
+
+/**
+ * @name mapPropsStream
+ * @description A higher-order component version of [componentFromStream()](http://www.bitsrc.io/recompose/recompose/higher-order-components/component-from-stream) — accepts a function that maps an observable stream of owner props to a stream of child props, rather than directly to a stream of React nodes. The child props are then passed to a base component.
+ * You may want to use this version to interoperate with other Recompose higher-order component helpers.
+ * @param {object} transform
+ * 
+ */
 
 const mapPropsStream = transform => {
   const hoc = mapPropsStreamWithConfig(globalConfig)(transform)

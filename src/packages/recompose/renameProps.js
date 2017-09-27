@@ -5,6 +5,7 @@ import setDisplayName from './setDisplayName'
 import wrapDisplayName from './wrapDisplayName'
 
 /**
+ * @name renameProps
  * @description Renames multiple props, using a map of old prop names to new prop names.
  * @param {object} nameMap
  */

@@ -1,4 +1,5 @@
 /**
+ * @name setStatic
  * @description Assigns a value to a static property on the base component. 
  * @param {string} key 
  * @param {any} value 

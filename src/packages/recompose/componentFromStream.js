@@ -4,35 +4,9 @@ import $$observable from 'symbol-observable'
 import { config as globalConfig } from './setObservableConfig'
 
 /**
- * @description Creates a React component by mapping an observable stream of props to a stream of React nodes (vdom).
- * You can think of propsToReactNode as a function f such that
- *
- * const vdom$ = f(props$)
- * 
- * where props$ is a stream of props and vdom$ is a stream of React nodes. This formulation similar to the popular notion of React views as a function, often communicated as
- * 
- * v = f(d)
- * @example
- * const Counter = componentFromStream(props$ => {
- *   const { handler: increment, stream: increment$ } = createEventHandler()
- *   const { handler: decrement, stream: decrement$ } = createEventHandler()
- *   const count$ = Observable.merge(
- *       increment$.mapTo(1),
- *       decrement$.mapTo(-1)
- *     )
- *     .startWith(0)
- *     .scan((count, n) => count + n, 0)
- * 
- *   return props$.combineLatest(
- *     count$,
- *     (props, count) =>
- *       <div {...props}>
- *         Count: {count}
- *         <button onClick={increment}>+</button>
- *         <button onClick={decrement}>-</button>
- *       </div>
- *   )
- * })
+ * @name componentFromStreamWithConfig
+ * @description componentFromStreamWithConfig is an alternative to componentFromStream() that accepts an observable config and returns a customized componentFromStream() which uses the specified observable library. This option is recommended if you want to avoid global state with [setObservableConfig()](http://www.bitsrc.io/recompose/recompose/observable-utilities/set-observable-config).
+ * @param {object} config
  */
 
 export const componentFromStreamWithConfig = config => propsToVdom =>
@@ -92,6 +66,40 @@ export const componentFromStreamWithConfig = config => propsToVdom =>
       return this.state.vdom
     }
   }
+
+/**
+ * @name componentFromStream
+ * @description Creates a React component by mapping an observable stream of props to a stream of React nodes (vdom).
+ * You can think of propsToReactNode as a function f such that
+ *
+ * const vdom$ = f(props$)
+ * 
+ * where props$ is a stream of props and vdom$ is a stream of React nodes. This formulation similar to the popular notion of React views as a function, often communicated as
+ * 
+ * v = f(d)
+ * @example
+ * const Counter = componentFromStream(props$ => {
+ *   const { handler: increment, stream: increment$ } = createEventHandler()
+ *   const { handler: decrement, stream: decrement$ } = createEventHandler()
+ *   const count$ = Observable.merge(
+ *       increment$.mapTo(1),
+ *       decrement$.mapTo(-1)
+ *     )
+ *     .startWith(0)
+ *     .scan((count, n) => count + n, 0)
+ * 
+ *   return props$.combineLatest(
+ *     count$,
+ *     (props, count) =>
+ *       <div {...props}>
+ *         Count: {count}
+ *         <button onClick={increment}>+</button>
+ *         <button onClick={decrement}>-</button>
+ *       </div>
+ *   )
+ * })
+ * @param {object} propsToVdom
+ */
 
 const componentFromStream = propsToVdom =>
   componentFromStreamWithConfig(globalConfig)(propsToVdom)

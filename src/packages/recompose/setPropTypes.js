@@ -1,6 +1,7 @@
 import setStatic from './setStatic'
 
 /**
+ * @name setPropTypes
  * @description Assigns to the propTypes property on the base component.
  * @param {object} propTypes 
  */

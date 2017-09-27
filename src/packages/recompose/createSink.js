@@ -1,6 +1,7 @@
 import { Component } from 'react'
 
 /**
+ * @name createSink
  * @description Creates a component that renders nothing (null) but calls a callback when receiving new props.
  * @param {function} callback 
  */

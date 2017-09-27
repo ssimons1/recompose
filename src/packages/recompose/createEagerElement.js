@@ -2,6 +2,7 @@ import createEagerElementUtil from './utils/createEagerElementUtil'
 import isReferentiallyTransparentFunctionComponent from './isReferentiallyTransparentFunctionComponent'
 
 /**
+ * @name createEagerElement
  * @description React elements are lazily evaluated. But when a higher-order component renders a functional component, the laziness doesn't have any real benefit. createEagerElement() is a replacement for React.createElement() that checks if the given component is referentially transparent. If so, rather than returning a React element, it calls the functional component with the given props and returns its output.
  * @param {ReactClass | ReactFunctionalComponent | string} type 
  * @param {object} props 

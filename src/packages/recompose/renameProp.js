@@ -4,6 +4,7 @@ import setDisplayName from './setDisplayName'
 import wrapDisplayName from './wrapDisplayName'
 
 /**
+ * @name renameProp
  * @description Renames a single prop.
  * @param {string} oldName 
  * @param {string} newName 

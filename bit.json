@@ -1,10 +1,13 @@
 {
     "env": {
-        "compiler": "none",
+        "compiler": "bit.envs/compilers/babel@3",
         "tester": "none"
     },
     "dependencies": {},
-    "structure": "components/{namespace}/{name}",
+    "structure": {
+        "components": "components/{namespace}/{name}",
+        "dependencies": "components/.dependencies"
+    },
     "dist": {
         "target": "dist"
     }

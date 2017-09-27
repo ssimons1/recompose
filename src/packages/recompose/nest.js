@@ -2,6 +2,7 @@ import createEagerFactory from './createEagerFactory'
 import getDisplayName from './getDisplayName'
 
 /**
+ * @name nest
  * @description Composes components by nesting each one inside the previous.
  * @param {array} Components 
  * @example

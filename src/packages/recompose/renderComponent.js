@@ -2,6 +2,7 @@ import createEagerFactory from './createEagerFactory'
 import wrapDisplayName from './wrapDisplayName'
 
 /**
+ * @name renderComponent
  * @description Takes a component and returns a higher-order component version of that component.
  * @param {ReactClass | ReactFunctionalComponent | string} Component
  * @example

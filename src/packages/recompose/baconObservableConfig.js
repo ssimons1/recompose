@@ -1,6 +1,10 @@
 import $$observable from 'symbol-observable'
 import Bacon from 'baconjs'
 
+/**
+ * @name baconObservableConfig
+ */
+
 const config = {
   fromESObservable: observable =>
     Bacon.fromBinder(sink => {

@@ -6,6 +6,7 @@ import shallowEqual from './shallowEqual'
 import mapValues from './utils/mapValues'
 
 /**
+ * @name withStateHandlers
  * @description Passes state object properties and immutable updater functions in a form of (...payload: any[]) => Object to the base component.
  * Every state updater function accepts state, props and payload and must return a new state or undefined. The new state is shallowly merged with the previous state. Returning undefined does not cause a component rerender.
  * @param {object | function} initialState 
