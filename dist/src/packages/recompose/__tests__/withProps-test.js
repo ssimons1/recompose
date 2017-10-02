@@ -4,14 +4,18 @@ const _react2 = _interopRequireDefault(_react)
 
 const _enzyme = require('enzyme')
 
-const _ = require('../')
+const _withProps = require('../withProps')
+
+const _withProps2 = _interopRequireDefault(_withProps)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
 }
 
 test('withProps passes additional props to base component', () => {
-  const DoReMi = (0, _.withProps)({ 'data-so': 'do', 'data-la': 'fa' })('div')
+  const DoReMi = (0, _withProps2.default)({ 'data-so': 'do', 'data-la': 'fa' })(
+    'div'
+  )
   expect(DoReMi.displayName).toBe('withProps(div)')
 
   const div = (0, _enzyme.shallow)(
@@ -22,7 +26,9 @@ test('withProps passes additional props to base component', () => {
 })
 
 test('withProps takes precedent over owner props', () => {
-  const DoReMi = (0, _.withProps)({ 'data-so': 'do', 'data-la': 'fa' })('div')
+  const DoReMi = (0, _withProps2.default)({ 'data-so': 'do', 'data-la': 'fa' })(
+    'div'
+  )
 
   const div = (0, _enzyme.shallow)(
     _react2.default.createElement(DoReMi, { 'data-la': 'ti' })
@@ -32,7 +38,7 @@ test('withProps takes precedent over owner props', () => {
 })
 
 test('withProps should accept function', () => {
-  const DoReMi = (0, _.withProps)(props => ({
+  const DoReMi = (0, _withProps2.default)(props => ({
     'data-so': props['data-la'],
   }))('div')
 

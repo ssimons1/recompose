@@ -16,10 +16,10 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
 }
 
-const componentFromStream = (0,
-_componentFromStream.componentFromStreamWithConfig)(
-  _rxjsObservableConfig2.default
-)
+const componentFromStream = (
+  0,
+  _componentFromStream.componentFromStreamWithConfig
+)(_rxjsObservableConfig2.default)
 
 test('componentFromStream creates a component from a prop stream transformation', () => {
   const Double = componentFromStream(props$ =>
@@ -113,10 +113,7 @@ test('complete props stream before unmounting', () => {
 
 test('completed props stream should throw an exception', () => {
   const Div = componentFromStream(props$ => {
-    const first$ = props$
-      .filter(() => false)
-      .first()
-      .startWith(null)
+    const first$ = props$.filter(() => false).first().startWith(null)
 
     return props$.combineLatest(first$, props1 =>
       _react2.default.createElement('div', props1)

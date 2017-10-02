@@ -92,10 +92,8 @@ const shouldUpdate = function shouldUpdate(test) {
 
         return _possibleConstructorReturn(
           this,
-          (ShouldUpdate.__proto__ || Object.getPrototypeOf(ShouldUpdate)).apply(
-            this,
-            arguments
-          )
+          (ShouldUpdate.__proto__ || Object.getPrototypeOf(ShouldUpdate))
+            .apply(this, arguments)
         )
       }
 

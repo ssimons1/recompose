@@ -8,7 +8,17 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _pure = require('../pure')
+
+const _pure2 = _interopRequireDefault(_pure)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
+
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
 
 const _utils = require('./utils')
 
@@ -21,9 +31,9 @@ test('pure implements shouldComponentUpdate() using shallowEqual()', () => {
   component.displayName = 'component'
 
   const initialTodos = ['eat', 'drink', 'sleep']
-  const Todos = (0, _.compose)(
-    (0, _.withState)('todos', 'updateTodos', initialTodos),
-    _.pure,
+  const Todos = (0, _compose2.default)(
+    (0, _withState2.default)('todos', 'updateTodos', initialTodos),
+    _pure2.default,
     _utils.countRenders
   )(component)
 

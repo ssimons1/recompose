@@ -1,7 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { mapProps, withState, compose } from '../mapProps'
+import mapProps from '../mapProps'
+import withState from '../withState'
+import compose from '../compose'
 
 test('mapProps maps owner props to child props', () => {
   const component = sinon.spy(() => null)

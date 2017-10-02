@@ -1,16 +1,17 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-
-import { compose, withStateHandlers } from '../withStateHandlers'
+import withStateHandlers from '../withStateHandlers'
+import compose from '../compose'
 
 test('withStateHandlers should persist events passed as argument', () => {
-  const component = ({ value, onChange }) => (
+  const component = ({ value, onChange }) =>
     <div>
       <input type="text" value={value} onChange={onChange} />
-      <p>{value}</p>
+      <p>
+        {value}
+      </p>
     </div>
-  )
 
   const InputComponent = withStateHandlers(
     { value: '' },

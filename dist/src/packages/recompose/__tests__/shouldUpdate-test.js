@@ -8,7 +8,17 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _shouldUpdate = require('../shouldUpdate')
+
+const _shouldUpdate2 = _interopRequireDefault(_shouldUpdate)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
+
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
 
 const _utils = require('./utils')
 
@@ -21,9 +31,11 @@ test('shouldUpdate implements shouldComponentUpdate', () => {
   component.displayName = 'component'
 
   const initialTodos = ['eat', 'drink', 'sleep']
-  const Todos = (0, _.compose)(
-    (0, _.withState)('todos', 'updateTodos', initialTodos),
-    (0, _.shouldUpdate)((props, nextProps) => props.todos !== nextProps.todos),
+  const Todos = (0, _compose2.default)(
+    (0, _withState2.default)('todos', 'updateTodos', initialTodos),
+    (0, _shouldUpdate2.default)(
+      (props, nextProps) => props.todos !== nextProps.todos
+    ),
     _utils.countRenders
   )(component)
 

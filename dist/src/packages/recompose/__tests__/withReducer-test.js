@@ -8,7 +8,17 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _withReducer = require('../withReducer')
+
+const _withReducer2 = _interopRequireDefault(_withReducer)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
+
+const _flattenProp = require('../flattenProp')
+
+const _flattenProp2 = _interopRequireDefault(_flattenProp)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -26,9 +36,9 @@ test('adds a stateful value and a function for updating it', () => {
     return action.type === SET_COUNTER ? { counter: action.payload } : state
   }
 
-  const Counter = (0, _.compose)(
-    (0, _.withReducer)('state', 'dispatch', reducer, initialState),
-    (0, _.flattenProp)('state')
+  const Counter = (0, _compose2.default)(
+    (0, _withReducer2.default)('state', 'dispatch', reducer, initialState),
+    (0, _flattenProp2.default)('state')
   )(component)
 
   expect(Counter.displayName).toBe('withReducer(flattenProp(component))')
@@ -54,9 +64,9 @@ test('calls initialState when it is a function', () => {
     return action.type === SET_COUNTER ? { counter: action.payload } : state
   }
 
-  const Counter = (0, _.compose)(
-    (0, _.withReducer)('state', 'dispatch', reducer, initialState),
-    (0, _.flattenProp)('state')
+  const Counter = (0, _compose2.default)(
+    (0, _withReducer2.default)('state', 'dispatch', reducer, initialState),
+    (0, _flattenProp2.default)('state')
   )(component)
   ;(0, _enzyme.mount)(
     _react2.default.createElement(Counter, { initialCount: 10 })
@@ -80,9 +90,9 @@ test('receives state from reducer when initialState is not provided', () => {
     return action.type === SET_COUNTER ? { counter: action.payload } : state
   }
 
-  const Counter = (0, _.compose)(
-    (0, _.withReducer)('state', 'dispatch', reducer),
-    (0, _.flattenProp)('state')
+  const Counter = (0, _compose2.default)(
+    (0, _withReducer2.default)('state', 'dispatch', reducer),
+    (0, _flattenProp2.default)('state')
   )(component)
   ;(0, _enzyme.mount)(_react2.default.createElement(Counter, null))
 

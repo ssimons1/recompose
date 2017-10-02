@@ -25,8 +25,10 @@ function _interopRequireDefault(obj) {
  */
 
 const createFactory = function createFactory(type) {
-  const isReferentiallyTransparent = (0,
-  _isReferentiallyTransparentFunctionComponent2.default)(type)
+  const isReferentiallyTransparent = (
+    0,
+    _isReferentiallyTransparentFunctionComponent2.default
+  )(type)
   return function(p, c) {
     return (0, _createEagerElementUtil2.default)(
       false,

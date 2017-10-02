@@ -103,23 +103,24 @@ const withContext = function withContext(childContextTypes, getChildContext) {
           args[_key] = arguments[_key]
         }
 
-        return (
-          (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-            this,
-            (_ref =
-              WithContext.__proto__ ||
-              Object.getPrototypeOf(WithContext)).call.apply(
-              _ref,
-              [this].concat(args)
-            )
+        return (_ret = (
+          (_temp = (
+            (_this = _possibleConstructorReturn(
+              this,
+              (_ref =
+                WithContext.__proto__ ||
+                Object.getPrototypeOf(WithContext)).call.apply(
+                _ref,
+                [this].concat(args)
+              )
+            )),
+            _this
           )),
-          _this)),
           (_this.getChildContext = function() {
             return getChildContext(_this.props)
           }),
-          _temp)),
-          _possibleConstructorReturn(_this, _ret)
-        )
+          _temp
+        )), _possibleConstructorReturn(_this, _ret)
       }
 
       _createClass(WithContext, [

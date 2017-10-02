@@ -1,7 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { shouldUpdate, compose, withState } from '../shouldUpdate'
+import shouldUpdate from '../shouldUpdate'
+import compose from '../compose'
+import withState from '../withState'
 import { countRenders } from './utils'
 
 test('shouldUpdate implements shouldComponentUpdate', () => {

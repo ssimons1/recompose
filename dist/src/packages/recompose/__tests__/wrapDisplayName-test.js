@@ -19,7 +19,9 @@ const _react = require('react')
 
 const _react2 = _interopRequireDefault(_react)
 
-const _ = require('../')
+const _wrapDisplayName = require('../wrapDisplayName')
+
+const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -71,10 +73,8 @@ test('wrapDisplayName wraps the display name of a React component with the name 
 
       return _possibleConstructorReturn(
         this,
-        (SomeComponent.__proto__ || Object.getPrototypeOf(SomeComponent)).apply(
-          this,
-          arguments
-        )
+        (SomeComponent.__proto__ || Object.getPrototypeOf(SomeComponent))
+          .apply(this, arguments)
       )
     }
 
@@ -90,7 +90,7 @@ test('wrapDisplayName wraps the display name of a React component with the name 
     return SomeComponent
   })(_react2.default.Component)
 
-  expect((0, _.wrapDisplayName)(SomeComponent, 'someHoC')).toBe(
+  expect((0, _wrapDisplayName2.default)(SomeComponent, 'someHoC')).toBe(
     'someHoC(SomeComponent)'
   )
 })

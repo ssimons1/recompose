@@ -91,10 +91,8 @@ const Nothing = (function(_Component) {
 
     return _possibleConstructorReturn(
       this,
-      (Nothing.__proto__ || Object.getPrototypeOf(Nothing)).apply(
-        this,
-        arguments
-      )
+      (Nothing.__proto__ || Object.getPrototypeOf(Nothing))
+        .apply(this, arguments)
     )
   }
 

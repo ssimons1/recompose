@@ -6,7 +6,9 @@ const _propTypes = require('prop-types')
 
 const _propTypes2 = _interopRequireDefault(_propTypes)
 
-const _ = require('../')
+const _setStatic = require('../setStatic')
+
+const _setStatic2 = _interopRequireDefault(_setStatic)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -16,7 +18,7 @@ test('setStatic sets a static property on the base component', () => {
   const BaseComponent = function BaseComponent() {
     return _react2.default.createElement('div', null)
   }
-  const NewComponent = (0, _.setStatic)('propTypes', {
+  const NewComponent = (0, _setStatic2.default)('propTypes', {
     foo: _propTypes2.default.object,
   })(BaseComponent)
 

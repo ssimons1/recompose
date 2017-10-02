@@ -51,7 +51,6 @@
     "codecov": "^1.0.1",
     "create-react-class": "^15.5.0",
     "cross-env": "^4.0.0",
-    "enzyme": "^2.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-prettier": "^1.7.0",
@@ -91,6 +90,7 @@
   },
   "dependencies": {
     "change-emitter": "^0.1.6",
+    "enzyme": "2.2.0",
     "hoist-non-react-statics": "^2.3.1",
     "yarn": "^1.1.0"
   }

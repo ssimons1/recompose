@@ -8,7 +8,21 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _renderComponent = require('../renderComponent')
+
+const _renderComponent2 = _interopRequireDefault(_renderComponent)
+
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
+
+const _branch = require('../branch')
+
+const _branch2 = _interopRequireDefault(_branch)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -18,12 +32,12 @@ test('renderComponent always renders the given component', () => {
   const componentA = _sinon2.default.spy(() => null)
   const componentB = _sinon2.default.spy(() => null)
 
-  const Foobar = (0, _.compose)(
-    (0, _.withState)('flip', 'updateFlip', false),
-    (0, _.branch)(
+  const Foobar = (0, _compose2.default)(
+    (0, _withState2.default)('flip', 'updateFlip', false),
+    (0, _branch2.default)(
       props => props.flip,
-      (0, _.renderComponent)(componentA),
-      (0, _.renderComponent)(componentB)
+      (0, _renderComponent2.default)(componentA),
+      (0, _renderComponent2.default)(componentB)
     )
   )(null)
   ;(0, _enzyme.mount)(_react2.default.createElement(Foobar, null))

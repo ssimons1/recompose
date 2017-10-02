@@ -1,7 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { withReducer, compose, flattenProp } from '../withReducer'
+import withReducer from '../withReducer'
+import compose from '../compose'
+import flattenProp from '../flattenProp'
 
 const SET_COUNTER = 'SET_COUNTER'
 

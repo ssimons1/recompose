@@ -4,14 +4,16 @@ const _react2 = _interopRequireDefault(_react)
 
 const _enzyme = require('enzyme')
 
-const _ = require('../')
+const _lifecycle = require('../lifecycle')
+
+const _lifecycle2 = _interopRequireDefault(_lifecycle)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
 }
 
 test('lifecycle is a higher-order component version of React.Component', () => {
-  const enhance = (0, _.lifecycle)({
+  const enhance = (0, _lifecycle2.default)({
     componentWillMount: function componentWillMount() {
       this.setState({ 'data-bar': 'baz' })
     },

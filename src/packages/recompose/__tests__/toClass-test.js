@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { toClass, withContext, compose } from '../toClass'
+import toClass from '../toClass'
+import withContext from '../withContext'
+import compose from '../compose'
 
 test('toClass returns the base component if it is already a class', () => {
   class BaseComponent extends React.Component {
@@ -63,9 +65,8 @@ test('toClass passes context and props correctly', () => {
     withContext({ store: PropTypes.object }, props => ({ store: props.store }))
   )(Provider)
 
-  const StatelessComponent = (props, context) => (
+  const StatelessComponent = (props, context) =>
     <div data-props={props} data-context={context} />
-  )
 
   StatelessComponent.contextTypes = { store: PropTypes.object }
 

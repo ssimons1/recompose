@@ -1,4 +1,4 @@
-import { createEventHandler } from '../createEventHandler'
+import createEventHandler from '../createEventHandler'
 
 test('createEventHandler creates an event handler and a corresponding stream', () => {
   const result = []

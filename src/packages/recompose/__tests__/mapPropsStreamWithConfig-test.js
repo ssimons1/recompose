@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { Stream as MostStream } from 'most'
 import { Observable } from 'rxjs'
-import { mapPropsStreamWithConfig } from '../'
+import { mapPropsStreamWithConfig } from '../mapPropsStream'
 import rxConfig from '../rxjsObservableConfig'
 import mostConfig from '../mostObservableConfig'
 

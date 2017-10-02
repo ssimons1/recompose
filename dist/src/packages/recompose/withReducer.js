@@ -125,17 +125,19 @@ const withReducer = function withReducer(
           args[_key] = arguments[_key]
         }
 
-        return (
-          (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-            this,
-            (_ref =
-              WithReducer.__proto__ ||
-              Object.getPrototypeOf(WithReducer)).call.apply(
-              _ref,
-              [this].concat(args)
-            )
+        return (_ret = (
+          (_temp = (
+            (_this = _possibleConstructorReturn(
+              this,
+              (_ref =
+                WithReducer.__proto__ ||
+                Object.getPrototypeOf(WithReducer)).call.apply(
+                _ref,
+                [this].concat(args)
+              )
+            )),
+            _this
           )),
-          _this)),
           (_this.state = {
             stateValue: _this.initializeStateValue(),
           }),
@@ -147,9 +149,8 @@ const withReducer = function withReducer(
               }
             })
           }),
-          _temp)),
-          _possibleConstructorReturn(_this, _ret)
-        )
+          _temp
+        )), _possibleConstructorReturn(_this, _ret)
       }
 
       _createClass(WithReducer, [
@@ -173,14 +174,16 @@ const withReducer = function withReducer(
               Object.assign(
                 {},
                 this.props,
-                ((_Object$assign = {}),
-                _defineProperty(
-                  _Object$assign,
-                  stateName,
-                  this.state.stateValue
-                ),
-                _defineProperty(_Object$assign, dispatchName, this.dispatch),
-                _Object$assign)
+                (
+                  (_Object$assign = {}),
+                  _defineProperty(
+                    _Object$assign,
+                    stateName,
+                    this.state.stateValue
+                  ),
+                  _defineProperty(_Object$assign, dispatchName, this.dispatch),
+                  _Object$assign
+                )
               )
             )
           },

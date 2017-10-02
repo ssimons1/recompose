@@ -8,19 +8,33 @@ const _react2 = _interopRequireDefault(_react)
 
 const _enzyme = require('enzyme')
 
-const _ = require('../')
+const _branch = require('../branch')
+
+const _branch2 = _interopRequireDefault(_branch)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
+
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
+
+const _withProps = require('../withProps')
+
+const _withProps2 = _interopRequireDefault(_withProps)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
 }
 
 test('branch tests props and applies one of two HoCs, for true and false', () => {
-  const SayMyName = (0, _.compose)(
-    (0, _.withState)('isBad', 'updateIsBad', false),
-    (0, _.branch)(
+  const SayMyName = (0, _compose2.default)(
+    (0, _withState2.default)('isBad', 'updateIsBad', false),
+    (0, _branch2.default)(
       props => props.isBad,
-      (0, _.withProps)({ name: 'Heisenberg' }),
-      (0, _.withProps)({ name: 'Walter' })
+      (0, _withProps2.default)({ name: 'Heisenberg' }),
+      (0, _withProps2.default)({ name: 'Walter' })
     )
   )(_ref => {
     let isBad = _ref.isBad,
@@ -77,7 +91,7 @@ test('branch defaults third argument to identity function', () => {
     return _react2.default.createElement('div', { className: 'right' }, 'Right')
   }
 
-  const BranchedComponent = (0, _.branch)(
+  const BranchedComponent = (0, _branch2.default)(
     () => false,
     () =>
       function(props) {
@@ -103,7 +117,7 @@ test('branch third argument should not cause console error', () => {
     )
   }
 
-  const BranchedComponent = (0, _.branch)(() => false, v => v, v => v)(
+  const BranchedComponent = (0, _branch2.default)(() => false, v => v, v => v)(
     Component
   )
   ;(0, _enzyme.mount)(_react2.default.createElement(BranchedComponent, null))

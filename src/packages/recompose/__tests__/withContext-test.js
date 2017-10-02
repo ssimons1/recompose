@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import { withContext, getContext, compose, mapProps } from '../withContext'
+import withContext from '../withContext'
+import getContext from '../getContext'
+import compose from '../compose'
+import mapProps from '../mapProps'
 
 test('withContext + getContext adds to and grabs from context', () => {
   // Mini React Redux clone

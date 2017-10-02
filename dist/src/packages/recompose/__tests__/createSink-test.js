@@ -8,7 +8,21 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _createSink = require('../createSink')
+
+const _createSink2 = _interopRequireDefault(_createSink)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
+
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
+
+const _mapProps = require('../mapProps')
+
+const _mapProps2 = _interopRequireDefault(_mapProps)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -26,10 +40,10 @@ function _objectWithoutProperties(obj, keys) {
 
 test('createSink creates a React component that fires a callback when receiving new props', () => {
   const spy = _sinon2.default.spy()
-  const Sink = (0, _.createSink)(spy)
-  const Counter = (0, _.compose)(
-    (0, _.withState)('counter', 'updateCounter', 0),
-    (0, _.mapProps)(_ref => {
+  const Sink = (0, _createSink2.default)(spy)
+  const Counter = (0, _compose2.default)(
+    (0, _withState2.default)('counter', 'updateCounter', 0),
+    (0, _mapProps2.default)(_ref => {
       let updateCounter = _ref.updateCounter,
         rest = _objectWithoutProperties(_ref, ['updateCounter'])
 

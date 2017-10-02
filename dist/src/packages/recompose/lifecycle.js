@@ -103,10 +103,8 @@ const lifecycle = function lifecycle(spec) {
 
         return _possibleConstructorReturn(
           this,
-          (Lifecycle.__proto__ || Object.getPrototypeOf(Lifecycle)).apply(
-            this,
-            arguments
-          )
+          (Lifecycle.__proto__ || Object.getPrototypeOf(Lifecycle))
+            .apply(this, arguments)
         )
       }
 

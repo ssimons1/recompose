@@ -1,9 +1,15 @@
-const _ = require('../')
+const _createEventHandler3 = require('../createEventHandler')
+
+const _createEventHandler4 = _interopRequireDefault(_createEventHandler3)
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj }
+}
 
 test('createEventHandler creates an event handler and a corresponding stream', () => {
   const result = []
 
-  let _createEventHandler = (0, _.createEventHandler)(),
+  let _createEventHandler = (0, _createEventHandler4.default)(),
     stream = _createEventHandler.stream,
     handler = _createEventHandler.handler
 
@@ -25,7 +31,7 @@ test('handles multiple subscribers', () => {
   const result1 = []
   const result2 = []
 
-  let _createEventHandler2 = (0, _.createEventHandler)(),
+  let _createEventHandler2 = (0, _createEventHandler4.default)(),
     handler = _createEventHandler2.handler,
     stream = _createEventHandler2.stream
 

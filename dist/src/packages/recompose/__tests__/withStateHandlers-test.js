@@ -8,7 +8,13 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _withStateHandlers = require('../withStateHandlers')
+
+const _withStateHandlers2 = _interopRequireDefault(_withStateHandlers)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -30,7 +36,7 @@ test('withStateHandlers should persist events passed as argument', () => {
     )
   }
 
-  const InputComponent = (0, _.withStateHandlers)(
+  const InputComponent = (0, _withStateHandlers2.default)(
     { value: '' },
     {
       onChange: function onChange() {
@@ -65,7 +71,7 @@ test('withStateHandlers adds a stateful value and a function for updating it', (
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withStateHandlers)(
+  const Counter = (0, _withStateHandlers2.default)(
     { counter: 0 },
     {
       updateCounter: function updateCounter(_ref2) {
@@ -100,7 +106,7 @@ test('withStateHandlers accepts initialState as function of props', () => {
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withStateHandlers)(
+  const Counter = (0, _withStateHandlers2.default)(
     _ref3 => {
       const initialCounter = _ref3.initialCounter
       return {
@@ -130,7 +136,7 @@ test('withStateHandlers initial state must be function or object or null or unde
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withStateHandlers)(1, {})(component)
+  const Counter = (0, _withStateHandlers2.default)(1, {})(component)
   // React throws an error
   expect(() =>
     (0, _enzyme.mount)(_react2.default.createElement(Counter, null))
@@ -141,7 +147,7 @@ test('withStateHandlers have access to props', () => {
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withStateHandlers)(
+  const Counter = (0, _withStateHandlers2.default)(
     _ref5 => {
       const initialCounter = _ref5.initialCounter
       return {
@@ -182,7 +188,7 @@ test('withStateHandlers passes immutable state updaters', () => {
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withStateHandlers)(
+  const Counter = (0, _withStateHandlers2.default)(
     _ref8 => {
       const initialCounter = _ref8.initialCounter
       return {
@@ -223,7 +229,7 @@ test('withStateHandlers does not rerender if state updater returns undefined', (
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withStateHandlers)(
+  const Counter = (0, _withStateHandlers2.default)(
     _ref11 => {
       const initialCounter = _ref11.initialCounter
       return {
@@ -263,8 +269,8 @@ test('withStateHandlers rerenders if parent props changed', () => {
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.compose)(
-    (0, _.withStateHandlers)(
+  const Counter = (0, _compose2.default)(
+    (0, _withStateHandlers2.default)(
       _ref13 => {
         const initialCounter = _ref13.initialCounter
         return {
@@ -282,7 +288,7 @@ test('withStateHandlers rerenders if parent props changed', () => {
         },
       }
     ),
-    (0, _.withStateHandlers)(
+    (0, _withStateHandlers2.default)(
       { incrementValue: 1 },
       {
         // updates parent state and return undefined

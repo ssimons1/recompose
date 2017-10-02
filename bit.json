@@ -1,7 +1,7 @@
 {
     "env": {
-        "compiler": "bit.envs/compilers/react@3",
-        "tester": "bit.envs/testers/jest@6"
+        "compiler": "bit.envs/compilers/react@5",
+        "tester": "bit.envs/testers/jest@9"
     },
     "dependencies": {},
     "structure": {

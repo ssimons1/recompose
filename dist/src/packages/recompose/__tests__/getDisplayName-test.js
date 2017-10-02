@@ -19,7 +19,9 @@ const _react = require('react')
 
 const _react2 = _interopRequireDefault(_react)
 
-const _ = require('../')
+const _getDisplayName = require('../getDisplayName')
+
+const _getDisplayName2 = _interopRequireDefault(_getDisplayName)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -71,10 +73,8 @@ test('getDisplayName gets the display name of a React component', () => {
 
       return _possibleConstructorReturn(
         this,
-        (SomeComponent.__proto__ || Object.getPrototypeOf(SomeComponent)).apply(
-          this,
-          arguments
-        )
+        (SomeComponent.__proto__ || Object.getPrototypeOf(SomeComponent))
+          .apply(this, arguments)
       )
     }
 
@@ -99,8 +99,8 @@ test('getDisplayName gets the display name of a React component', () => {
       return _possibleConstructorReturn(
         this,
         (SomeOtherComponent.__proto__ ||
-          Object.getPrototypeOf(SomeOtherComponent)
-        ).apply(this, arguments)
+          Object.getPrototypeOf(SomeOtherComponent))
+          .apply(this, arguments)
       )
     }
 
@@ -122,13 +122,19 @@ test('getDisplayName gets the display name of a React component', () => {
     return _react2.default.createElement('div', null)
   }
 
-  expect((0, _.getDisplayName)(SomeComponent)).toBe('SomeComponent')
-  expect((0, _.getDisplayName)(SomeOtherComponent)).toBe('CustomDisplayName')
-  expect((0, _.getDisplayName)(YetAnotherComponent)).toBe('YetAnotherComponent')
+  expect((0, _getDisplayName2.default)(SomeComponent)).toBe('SomeComponent')
+  expect((0, _getDisplayName2.default)(SomeOtherComponent)).toBe(
+    'CustomDisplayName'
+  )
+  expect((0, _getDisplayName2.default)(YetAnotherComponent)).toBe(
+    'YetAnotherComponent'
+  )
   expect(
-    (0, _.getDisplayName)(() => _react2.default.createElement('div', null))
+    (0, _getDisplayName2.default)(() =>
+      _react2.default.createElement('div', null)
+    )
   ).toBe('Component')
-  expect((0, _.getDisplayName)('div')).toBe('div')
+  expect((0, _getDisplayName2.default)('div')).toBe('div')
 })
 
 // # sourceMappingURL=getDisplayName-test.js.map

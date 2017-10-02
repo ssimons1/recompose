@@ -1,5 +1,5 @@
 import React from 'react'
-import { wrapDisplayName } from '../wrapDisplayName'
+import wrapDisplayName from '../wrapDisplayName'
 
 test('wrapDisplayName wraps the display name of a React component with the name of an HoC, Relay-style', () => {
   class SomeComponent extends React.Component {

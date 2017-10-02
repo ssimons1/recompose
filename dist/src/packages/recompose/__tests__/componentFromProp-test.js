@@ -4,14 +4,16 @@ const _react2 = _interopRequireDefault(_react)
 
 const _enzyme = require('enzyme')
 
-const _ = require('../')
+const _componentFromProp = require('../componentFromProp')
+
+const _componentFromProp2 = _interopRequireDefault(_componentFromProp)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
 }
 
 test('componentFromProp creates a component that takes a component as a prop and renders it with the rest of the props', () => {
-  const Container = (0, _.componentFromProp)('component')
+  const Container = (0, _componentFromProp2.default)('component')
   expect(Container.displayName).toBe('componentFromProp(component)')
 
   const Component = function Component(_ref) {

@@ -8,7 +8,21 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _withPropsOnChange = require('../withPropsOnChange')
+
+const _withPropsOnChange2 = _interopRequireDefault(_withPropsOnChange)
+
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
+
+const _flattenProp = require('../flattenProp')
+
+const _flattenProp2 = _interopRequireDefault(_flattenProp)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -29,10 +43,14 @@ test('withPropsOnChange maps subset of owner props to child props', () => {
   component.displayName = 'component'
 
   const mapSpy = _sinon2.default.spy()
-  const StringConcat = (0, _.compose)(
-    (0, _.withState)('strings', 'updateStrings', { a: 'a', b: 'b', c: 'c' }),
-    (0, _.flattenProp)('strings'),
-    (0, _.withPropsOnChange)(['a', 'b'], _ref => {
+  const StringConcat = (0, _compose2.default)(
+    (0, _withState2.default)('strings', 'updateStrings', {
+      a: 'a',
+      b: 'b',
+      c: 'c',
+    }),
+    (0, _flattenProp2.default)('strings'),
+    (0, _withPropsOnChange2.default)(['a', 'b'], _ref => {
       let a = _ref.a,
         b = _ref.b,
         props = _objectWithoutProperties(_ref, ['a', 'b'])

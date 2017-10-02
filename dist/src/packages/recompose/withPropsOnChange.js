@@ -124,21 +124,22 @@ const withPropsOnChange = function withPropsOnChange(
           args[_key] = arguments[_key]
         }
 
-        return (
-          (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-            this,
-            (_ref =
-              WithPropsOnChange.__proto__ ||
-              Object.getPrototypeOf(WithPropsOnChange)).call.apply(
-              _ref,
-              [this].concat(args)
-            )
+        return (_ret = (
+          (_temp = (
+            (_this = _possibleConstructorReturn(
+              this,
+              (_ref =
+                WithPropsOnChange.__proto__ ||
+                Object.getPrototypeOf(WithPropsOnChange)).call.apply(
+                _ref,
+                [this].concat(args)
+              )
+            )),
+            _this
           )),
-          _this)),
           (_this.computedProps = propsMapper(_this.props)),
-          _temp)),
-          _possibleConstructorReturn(_this, _ret)
-        )
+          _temp
+        )), _possibleConstructorReturn(_this, _ret)
       }
 
       _createClass(WithPropsOnChange, [

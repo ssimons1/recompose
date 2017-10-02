@@ -1,8 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-
-import { withState } from '../withState'
+import withState from '../withState'
 
 test('withState adds a stateful value and a function for updating it', () => {
   const component = sinon.spy(() => null)

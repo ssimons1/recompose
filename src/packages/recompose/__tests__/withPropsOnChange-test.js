@@ -1,12 +1,10 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
-import {
-  withPropsOnChange,
-  withState,
-  flattenProp,
-  compose,
-} from '../withPropsOnChange'
+import withPropsOnChange from '../withPropsOnChange'
+import withState from '../withState'
+import flattenProp from '../flattenProp'
+import compose from '../compose'
 
 test('withPropsOnChange maps subset of owner props to child props', () => {
   const component = sinon.spy(() => null)

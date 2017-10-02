@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { renderNothing } from '../renderNothing'
+import renderNothing from '../renderNothing'
 
 test('renderNothing returns a component that renders null', () => {
   const Nothing = renderNothing('div')

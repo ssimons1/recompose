@@ -67,8 +67,10 @@ const identity = function identity(t) {
 const mapPropsStreamWithConfig = (exports.mapPropsStreamWithConfig = function mapPropsStreamWithConfig(
   config
 ) {
-  const componentFromStream = (0,
-  _componentFromStream.componentFromStreamWithConfig)({
+  const componentFromStream = (
+    0,
+    _componentFromStream.componentFromStreamWithConfig
+  )({
     fromESObservable: identity,
     toESObservable: identity,
   })

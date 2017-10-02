@@ -15,7 +15,8 @@
             }
         ],
         "mainFile": "src/packages/recompose/branch.js",
-        "origin": "AUTHORED"
+        "origin": "AUTHORED",
+        "mainDistFile": "dist/src/packages/recompose/branch.js"
     },
     "higher-order-components/map-props": {
         "files": [

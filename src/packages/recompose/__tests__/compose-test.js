@@ -1,4 +1,4 @@
-import { compose } from '../compose'
+import compose from '../compose'
 
 test('compose composes from right to left', () => {
   const double = x => x * 2

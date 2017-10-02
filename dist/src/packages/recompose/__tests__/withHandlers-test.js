@@ -8,7 +8,17 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _withHandlers = require('../withHandlers')
+
+const _withHandlers2 = _interopRequireDefault(_withHandlers)
+
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -16,9 +26,9 @@ function _interopRequireDefault(obj) {
 
 test('withHandlers passes handlers to base component', () => {
   let submittedFormValue = void 0
-  const enhanceForm = (0, _.compose)(
-    (0, _.withState)('value', 'updateValue', ''),
-    (0, _.withHandlers)({
+  const enhanceForm = (0, _compose2.default)(
+    (0, _withState2.default)('value', 'updateValue', ''),
+    (0, _withHandlers2.default)({
       onChange: function onChange(props) {
         return function(event) {
           props.updateValue(event.target.value)
@@ -69,7 +79,7 @@ test('withHandlers passes handlers to base component', () => {
 })
 
 test('withHandlers passes immutable handlers', () => {
-  const enhance = (0, _.withHandlers)({
+  const enhance = (0, _withHandlers2.default)({
     handler: function handler() {
       return function() {
         return null
@@ -92,7 +102,7 @@ test('withHandlers caches handlers properly', () => {
   const handlerCreationSpy = _sinon2.default.spy()
   const handlerCallSpy = _sinon2.default.spy()
 
-  const enhance = (0, _.withHandlers)({
+  const enhance = (0, _withHandlers2.default)({
     handler: function handler(props) {
       handlerCreationSpy(props)
       return function(val) {
@@ -138,7 +148,7 @@ test('withHandlers caches handlers properly', () => {
 test('withHandlers warns if handler is not a higher-order function', () => {
   const error = _sinon2.default.stub(console, 'error')
 
-  const Button = (0, _.withHandlers)({
+  const Button = (0, _withHandlers2.default)({
     onClick: function onClick() {},
   })('button')
 
@@ -160,7 +170,7 @@ test('withHandlers warns if handler is not a higher-order function', () => {
 })
 
 test('withHandlers allow handers to be a factory', () => {
-  const enhance = (0, _.withHandlers)(initialProps => {
+  const enhance = (0, _withHandlers2.default)(initialProps => {
     let cache_ = void 0
 
     return {

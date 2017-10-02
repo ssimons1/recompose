@@ -12,7 +12,9 @@ const _rxjs4ObservableConfig = require('../rxjs4ObservableConfig')
 
 const _rxjs4ObservableConfig2 = _interopRequireDefault(_rxjs4ObservableConfig)
 
-const _ = require('../')
+const _mapPropsStream = require('../mapPropsStream')
+
+const _mapPropsStream2 = _interopRequireDefault(_mapPropsStream)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -22,7 +24,7 @@ function _interopRequireDefault(obj) {
 
 // Most of mapPropsStream's functionality is covered by componentFromStream
 test('mapPropsStream creates a higher-order component from a stream', () => {
-  const Double = (0, _.mapPropsStream)(props$ =>
+  const Double = (0, _mapPropsStream2.default)(props$ =>
     props$.map(_ref => {
       const n = _ref.n
       return { children: n * 2 }

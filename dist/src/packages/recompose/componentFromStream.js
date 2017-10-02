@@ -113,17 +113,19 @@ const componentFromStreamWithConfig = (exports.componentFromStreamWithConfig = f
           args[_key] = arguments[_key]
         }
 
-        return (
-          (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-            this,
-            (_ref =
-              ComponentFromStream.__proto__ ||
-              Object.getPrototypeOf(ComponentFromStream)).call.apply(
-              _ref,
-              [this].concat(args)
-            )
+        return (_ret = (
+          (_temp = (
+            (_this = _possibleConstructorReturn(
+              this,
+              (_ref =
+                ComponentFromStream.__proto__ ||
+                Object.getPrototypeOf(ComponentFromStream)).call.apply(
+                _ref,
+                [this].concat(args)
+              )
+            )),
+            _this
           )),
-          _this)),
           (_this.state = { vdom: null }),
           (_this.propsEmitter = (0, _changeEmitter.createChangeEmitter)()),
           (_this.props$ = config.fromESObservable(
@@ -147,9 +149,8 @@ const componentFromStreamWithConfig = (exports.componentFromStreamWithConfig = f
             )
           )),
           (_this.vdom$ = config.toESObservable(propsToVdom(_this.props$))),
-          _temp)),
-          _possibleConstructorReturn(_this, _ret)
-        )
+          _temp
+        )), _possibleConstructorReturn(_this, _ret)
       }
 
       // Stream of props

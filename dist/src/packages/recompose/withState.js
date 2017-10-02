@@ -140,17 +140,19 @@ const withState = function withState(
           args[_key] = arguments[_key]
         }
 
-        return (
-          (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-            this,
-            (_ref =
-              WithState.__proto__ ||
-              Object.getPrototypeOf(WithState)).call.apply(
-              _ref,
-              [this].concat(args)
-            )
+        return (_ret = (
+          (_temp = (
+            (_this = _possibleConstructorReturn(
+              this,
+              (_ref =
+                WithState.__proto__ ||
+                Object.getPrototypeOf(WithState)).call.apply(
+                _ref,
+                [this].concat(args)
+              )
+            )),
+            _this
           )),
-          _this)),
           (_this.state = {
             stateValue:
               typeof initialState === 'function'
@@ -168,9 +170,8 @@ const withState = function withState(
               }
             }, callback)
           }),
-          _temp)),
-          _possibleConstructorReturn(_this, _ret)
-        )
+          _temp
+        )), _possibleConstructorReturn(_this, _ret)
       }
 
       _createClass(WithState, [
@@ -183,18 +184,20 @@ const withState = function withState(
               Object.assign(
                 {},
                 this.props,
-                ((_Object$assign = {}),
-                _defineProperty(
-                  _Object$assign,
-                  stateName,
-                  this.state.stateValue
-                ),
-                _defineProperty(
-                  _Object$assign,
-                  stateUpdaterName,
-                  this.updateStateValue
-                ),
-                _Object$assign)
+                (
+                  (_Object$assign = {}),
+                  _defineProperty(
+                    _Object$assign,
+                    stateName,
+                    this.state.stateValue
+                  ),
+                  _defineProperty(
+                    _Object$assign,
+                    stateUpdaterName,
+                    this.updateStateValue
+                  ),
+                  _Object$assign
+                )
               )
             )
           },

@@ -8,7 +8,17 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _onlyUpdateForKeys = require('../onlyUpdateForKeys')
+
+const _onlyUpdateForKeys2 = _interopRequireDefault(_onlyUpdateForKeys)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
+
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -18,10 +28,10 @@ test('onlyUpdateForKeys implements shouldComponentUpdate()', () => {
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.compose)(
-    (0, _.withState)('counter', 'updateCounter', 0),
-    (0, _.withState)('foobar', 'updateFoobar', 'foobar'),
-    (0, _.onlyUpdateForKeys)(['counter'])
+  const Counter = (0, _compose2.default)(
+    (0, _withState2.default)('counter', 'updateCounter', 0),
+    (0, _withState2.default)('foobar', 'updateFoobar', 'foobar'),
+    (0, _onlyUpdateForKeys2.default)(['counter'])
   )(component)
 
   expect(Counter.displayName).toBe(

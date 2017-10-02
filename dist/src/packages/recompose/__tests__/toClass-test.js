@@ -29,7 +29,17 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _toClass = require('../toClass')
+
+const _toClass2 = _interopRequireDefault(_toClass)
+
+const _withContext = require('../withContext')
+
+const _withContext2 = _interopRequireDefault(_withContext)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -81,10 +91,8 @@ test('toClass returns the base component if it is already a class', () => {
 
       return _possibleConstructorReturn(
         this,
-        (BaseComponent.__proto__ || Object.getPrototypeOf(BaseComponent)).apply(
-          this,
-          arguments
-        )
+        (BaseComponent.__proto__ || Object.getPrototypeOf(BaseComponent))
+          .apply(this, arguments)
       )
     }
 
@@ -100,7 +108,7 @@ test('toClass returns the base component if it is already a class', () => {
     return BaseComponent
   })(_react2.default.Component)
 
-  const TestComponent = (0, _.toClass)(BaseComponent)
+  const TestComponent = (0, _toClass2.default)(BaseComponent)
   expect(TestComponent).toBe(BaseComponent)
 })
 
@@ -114,7 +122,7 @@ test('toClass copies propTypes, displayName, contextTypes and defaultProps from 
   StatelessComponent.contextTypes = { bar: _propTypes2.default.object }
   StatelessComponent.defaultProps = { foo: 'bar', fizz: 'buzz' }
 
-  const TestComponent = (0, _.toClass)(StatelessComponent)
+  const TestComponent = (0, _toClass2.default)(StatelessComponent)
 
   expect(TestComponent.displayName).toBe('Stateless')
   expect(TestComponent.propTypes).toEqual({ foo: _propTypes2.default.string })
@@ -132,7 +140,7 @@ test('toClass passes defaultProps correctly', () => {
   StatelessComponent.contextTypes = { bar: _propTypes2.default.object }
   StatelessComponent.defaultProps = { foo: 'bar', fizz: 'buzz' }
 
-  const TestComponent = (0, _.toClass)(StatelessComponent)
+  const TestComponent = (0, _toClass2.default)(StatelessComponent)
   ;(0, _enzyme.mount)(_react2.default.createElement(TestComponent, null))
   expect(StatelessComponent.lastCall.args[0].foo).toBe('bar')
   expect(StatelessComponent.lastCall.args[0].fizz).toBe('buzz')
@@ -149,10 +157,8 @@ test('toClass passes context and props correctly', () => {
 
       return _possibleConstructorReturn(
         this,
-        (Provider.__proto__ || Object.getPrototypeOf(Provider)).apply(
-          this,
-          arguments
-        )
+        (Provider.__proto__ || Object.getPrototypeOf(Provider))
+          .apply(this, arguments)
       )
     }
 
@@ -172,10 +178,11 @@ test('toClass passes context and props correctly', () => {
     children: _propTypes2.default.node,
   }
 
-  Provider = (0, _.compose)(
-    (0, _.withContext)({ store: _propTypes2.default.object }, props => ({
-      store: props.store,
-    }))
+  Provider = (0, _compose2.default)(
+    (0, _withContext2.default)(
+      { store: _propTypes2.default.object },
+      props => ({ store: props.store })
+    )
   )(Provider)
 
   const StatelessComponent = function StatelessComponent(props, context) {
@@ -187,7 +194,7 @@ test('toClass passes context and props correctly', () => {
 
   StatelessComponent.contextTypes = { store: _propTypes2.default.object }
 
-  const TestComponent = (0, _.toClass)(StatelessComponent)
+  const TestComponent = (0, _toClass2.default)(StatelessComponent)
 
   const div = (0, _enzyme.mount)(
     _react2.default.createElement(
@@ -202,7 +209,7 @@ test('toClass passes context and props correctly', () => {
 })
 
 test('toClass works with strings (DOM components)', () => {
-  const Div = (0, _.toClass)('div')
+  const Div = (0, _toClass2.default)('div')
   const div = (0, _enzyme.mount)(
     _react2.default.createElement(Div, null, 'Hello')
   )

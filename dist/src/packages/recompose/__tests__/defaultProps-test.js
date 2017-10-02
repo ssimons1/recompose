@@ -4,16 +4,19 @@ const _react2 = _interopRequireDefault(_react)
 
 const _enzyme = require('enzyme')
 
-const _ = require('../')
+const _defaultProps = require('../defaultProps')
+
+const _defaultProps2 = _interopRequireDefault(_defaultProps)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
 }
 
 test('defaultProps passes additional props to base component', () => {
-  const DoReMi = (0, _.defaultProps)({ 'data-so': 'do', 'data-la': 'fa' })(
-    'div'
-  )
+  const DoReMi = (0, _defaultProps2.default)({
+    'data-so': 'do',
+    'data-la': 'fa',
+  })('div')
   expect(DoReMi.displayName).toBe('defaultProps(div)')
 
   const div = (0, _enzyme.shallow)(
@@ -27,9 +30,10 @@ test('defaultProps passes additional props to base component', () => {
 })
 
 test('defaultProps has lower precendence than props from owner', () => {
-  const DoReMi = (0, _.defaultProps)({ 'data-so': 'do', 'data-la': 'fa' })(
-    'div'
-  )
+  const DoReMi = (0, _defaultProps2.default)({
+    'data-so': 'do',
+    'data-la': 'fa',
+  })('div')
   expect(DoReMi.displayName).toBe('defaultProps(div)')
 
   const div = (0, _enzyme.shallow)(
@@ -43,9 +47,10 @@ test('defaultProps has lower precendence than props from owner', () => {
 })
 
 test('defaultProps overrides undefined owner props', () => {
-  const DoReMi = (0, _.defaultProps)({ 'data-so': 'do', 'data-la': 'fa' })(
-    'div'
-  )
+  const DoReMi = (0, _defaultProps2.default)({
+    'data-so': 'do',
+    'data-la': 'fa',
+  })('div')
   expect(DoReMi.displayName).toBe('defaultProps(div)')
 
   const div = (0, _enzyme.shallow)(

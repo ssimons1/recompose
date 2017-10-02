@@ -29,7 +29,21 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _withContext = require('../withContext')
+
+const _withContext2 = _interopRequireDefault(_withContext)
+
+const _getContext = require('../getContext')
+
+const _getContext2 = _interopRequireDefault(_getContext)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
+
+const _mapProps = require('../mapProps')
+
+const _mapProps2 = _interopRequireDefault(_mapProps)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -91,10 +105,8 @@ test('withContext + getContext adds to and grabs from context', () => {
 
       return _possibleConstructorReturn(
         this,
-        (BaseProvider.__proto__ || Object.getPrototypeOf(BaseProvider)).apply(
-          this,
-          arguments
-        )
+        (BaseProvider.__proto__ || Object.getPrototypeOf(BaseProvider))
+          .apply(this, arguments)
       )
     }
 
@@ -114,18 +126,19 @@ test('withContext + getContext adds to and grabs from context', () => {
     children: _propTypes2.default.node,
   }
 
-  const Provider = (0, _.compose)(
-    (0, _.withContext)({ store: _propTypes2.default.object }, props => ({
-      store: props.store,
-    }))
+  const Provider = (0, _compose2.default)(
+    (0, _withContext2.default)(
+      { store: _propTypes2.default.object },
+      props => ({ store: props.store })
+    )
   )(BaseProvider)
 
   expect(Provider.displayName).toBe('withContext(BaseProvider)')
 
   const connect = function connect(selector) {
-    return (0, _.compose)(
-      (0, _.getContext)({ store: _propTypes2.default.object }),
-      (0, _.mapProps)(props => selector(props.store.getState()))
+    return (0, _compose2.default)(
+      (0, _getContext2.default)({ store: _propTypes2.default.object }),
+      (0, _mapProps2.default)(props => selector(props.store.getState()))
     )
   }
 

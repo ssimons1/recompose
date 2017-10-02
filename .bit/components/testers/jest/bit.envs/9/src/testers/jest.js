@@ -14,18 +14,19 @@
  * - [React test utils](https://facebook.github.io/react/docs/test-utils.html)
  * - [React Dom](https://facebook.github.io/react/docs/react-dom.html)
  * - [mocha-jsdom](https://github.com/rstacruz/mocha-jsdom)
+ * - [enzyme](https://github.com/airbnb/enzyme) for general purpose React testing utilities.
  */
 const jest = require('jest')
 const sinon = require('sinon')
 const TestUtils = require('react-dom/test-utils')
 const React = require('react')
 const ReactDom = require('react-dom')
+const enzyme = require('enzyme')
 const path = require('path')
 const fs = require('fs')
 const isEmptyObject = obj => Object.keys(obj).length === 0
+const { shallow } = enzyme
 const exec = require('child-process-promise').exec
-
-const resultsFilePath = 'results.json'
 
 function mockDom(markup) {
   var jsdom = require('jsdom')
@@ -41,27 +42,43 @@ function mockDom(markup) {
 
 const normalizeResults = results => {
   const testResults = results.testResults
+  let failures = []
+  let testProps = []
   const res = testResults.map(test => {
     const duration = test.endTime - test.startTime
-    const testProps = test.assertionResults.map(assertionRes => {
-      const title = assertionRes.title
-      const pass = assertionRes.status === 'passed' ? true : false
-      const err = !pass
-        ? {
-            message: assertionRes.failureMessages[0],
-            stack: assertionRes.failureMessages[0],
-          }
-        : undefined
-      if (err) return { title, pass, duration, err }
-      return { title, pass, duration }
-    })
+
+    if (isEmptyObject(test.assertionResults)) {
+      failures.push({
+        title: 'Test suite failed to run',
+        err: {
+          message: test.message,
+        },
+        duration: duration,
+      })
+    } else {
+      testProps = test.assertionResults.map(assertionRes => {
+        const title = assertionRes.title
+        const pass = assertionRes.status === 'passed' ? true : false
+        const err = !pass
+          ? {
+              message: assertionRes.failureMessages[0],
+              stack: assertionRes.failureMessages[0],
+            }
+          : undefined
+        if (err) return { title, pass, duration, err }
+        return { title, pass, duration }
+      })
+    }
+
     const StatsProps = {
       start: test.startTime,
       end: test.endTime,
       duration: duration,
     }
+
     const pass = test.status === 'passed' ? true : false
-    return { tests: testProps, stats: StatsProps, pass }
+
+    return { tests: testProps, stats: StatsProps, pass, failures }
   })
 
   return res[0]
@@ -70,11 +87,14 @@ const normalizeResults = results => {
 const readResults = (filePath = 'results.json') => {
   const results = fs.readFileSync(filePath)
   const parsedResults = JSON.parse(results)
+  console.log(results)
+  console.log(parsedResults)
   fs.unlinkSync(filePath)
   return parsedResults
 }
 
 const run = specFile => {
+  const resultsFilePath = `${extractFileNameFromPath(specFile)}-results.json`
   const jestPath = path.resolve(__dirname, '../../', 'node_modules/.bin/jest')
   // We are using outputFile flag because in some cases when using --json only
   // There is not valid json return, see details here:
@@ -91,6 +111,11 @@ const run = specFile => {
     })
 }
 
+const extractFileNameFromPath = filePath => {
+  let fileName = filePath.split('/').pop()
+  return fileName.split('.')[0]
+}
+
 module.exports = {
   run,
   globals: {
@@ -98,10 +123,12 @@ module.exports = {
     sinon,
     mockDom,
     ReactDom,
+    shallow,
   },
   modules: {
     jest,
     sinon,
+    enzyme,
     'react-dom/test-utils': TestUtils,
     'react-addons-test-utils': TestUtils,
     'react-dom': ReactDom,

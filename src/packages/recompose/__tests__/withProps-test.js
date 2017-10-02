@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { withProps } from '../withProps'
+import withProps from '../withProps'
 
 test('withProps passes additional props to base component', () => {
   const DoReMi = withProps({ 'data-so': 'do', 'data-la': 'fa' })('div')

@@ -129,21 +129,22 @@ const withHandlers = function withHandlers(handlers) {
           args[_key] = arguments[_key]
         }
 
-        return (
-          (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-            this,
-            (_ref =
-              WithHandlers.__proto__ ||
-              Object.getPrototypeOf(WithHandlers)).call.apply(
-              _ref,
-              [this].concat(args)
-            )
+        return (_ret = (
+          (_temp = (
+            (_this = _possibleConstructorReturn(
+              this,
+              (_ref =
+                WithHandlers.__proto__ ||
+                Object.getPrototypeOf(WithHandlers)).call.apply(
+                _ref,
+                [this].concat(args)
+              )
+            )),
+            _this
           )),
-          _this)),
           _initialiseProps.call(_this),
-          _temp)),
-          _possibleConstructorReturn(_this, _ret)
-        )
+          _temp
+        )), _possibleConstructorReturn(_this, _ret)
       }
 
       _createClass(WithHandlers, [

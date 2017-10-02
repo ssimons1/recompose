@@ -25,8 +25,10 @@ function _interopRequireDefault(obj) {
  */
 
 const createEagerElement = function createEagerElement(type, props, children) {
-  const isReferentiallyTransparent = (0,
-  _isReferentiallyTransparentFunctionComponent2.default)(type)
+  const isReferentiallyTransparent = (
+    0,
+    _isReferentiallyTransparentFunctionComponent2.default
+  )(type)
   /* eslint-disable */
   var hasKey = props && props.hasOwnProperty('key')
   /* eslint-enable */

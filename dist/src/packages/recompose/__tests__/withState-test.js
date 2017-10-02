@@ -8,7 +8,9 @@ const _sinon = require('sinon')
 
 const _sinon2 = _interopRequireDefault(_sinon)
 
-const _ = require('../')
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -18,7 +20,9 @@ test('withState adds a stateful value and a function for updating it', () => {
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withState)('counter', 'updateCounter', 0)(component)
+  const Counter = (0, _withState2.default)('counter', 'updateCounter', 0)(
+    component
+  )
   expect(Counter.displayName).toBe('withState(component)')
   ;(0, _enzyme.mount)(
     _react2.default.createElement(Counter, { pass: 'through' })
@@ -39,7 +43,9 @@ test('withState also accepts a non-function, which is passed directly to setStat
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withState)('counter', 'updateCounter', 0)(component)
+  const Counter = (0, _withState2.default)('counter', 'updateCounter', 0)(
+    component
+  )
   ;(0, _enzyme.mount)(_react2.default.createElement(Counter, null))
   const updateCounter = component.firstCall.args[0].updateCounter
 
@@ -51,7 +57,9 @@ test('withState accepts setState() callback', () => {
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withState)('counter', 'updateCounter', 0)(component)
+  const Counter = (0, _withState2.default)('counter', 'updateCounter', 0)(
+    component
+  )
   ;(0, _enzyme.mount)(_react2.default.createElement(Counter, null))
   const updateCounter = component.firstCall.args[0].updateCounter
 
@@ -67,7 +75,7 @@ test('withState also accepts initialState as function of props', () => {
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.withState)(
+  const Counter = (0, _withState2.default)(
     'counter',
     'updateCounter',
     props => props.initialCounter

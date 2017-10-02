@@ -4,14 +4,16 @@ const _react2 = _interopRequireDefault(_react)
 
 const _enzyme = require('enzyme')
 
-const _ = require('../')
+const _flattenProp = require('../flattenProp')
+
+const _flattenProp2 = _interopRequireDefault(_flattenProp)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
 }
 
 test('flattenProps flattens an object prop and spreads it into the top-level props object', () => {
-  const Counter = (0, _.flattenProp)('data-state')('div')
+  const Counter = (0, _flattenProp2.default)('data-state')('div')
   expect(Counter.displayName).toBe('flattenProp(div)')
 
   const wrapper = (0, _enzyme.shallow)(

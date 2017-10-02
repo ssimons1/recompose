@@ -91,10 +91,8 @@ const toClass = function toClass(baseComponent) {
 
       return _possibleConstructorReturn(
         this,
-        (ToClass.__proto__ || Object.getPrototypeOf(ToClass)).apply(
-          this,
-          arguments
-        )
+        (ToClass.__proto__ || Object.getPrototypeOf(ToClass))
+          .apply(this, arguments)
       )
     }
 

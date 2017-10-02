@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { lifecycle } from '../lifecycle'
+import lifecycle from '../lifecycle'
 
 test('lifecycle is a higher-order component version of React.Component', () => {
   const enhance = lifecycle({

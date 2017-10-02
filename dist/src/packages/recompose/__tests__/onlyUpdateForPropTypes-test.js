@@ -12,7 +12,21 @@ const _sinon2 = _interopRequireDefault(_sinon)
 
 const _enzyme = require('enzyme')
 
-const _ = require('../')
+const _onlyUpdateForPropTypes = require('../onlyUpdateForPropTypes')
+
+const _onlyUpdateForPropTypes2 = _interopRequireDefault(_onlyUpdateForPropTypes)
+
+const _compose = require('../compose')
+
+const _compose2 = _interopRequireDefault(_compose)
+
+const _withState = require('../withState')
+
+const _withState2 = _interopRequireDefault(_withState)
+
+const _setPropTypes = require('../setPropTypes')
+
+const _setPropTypes2 = _interopRequireDefault(_setPropTypes)
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
@@ -22,11 +36,11 @@ test('onlyUpdateForPropTypes only updates for props specified in propTypes', () 
   const component = _sinon2.default.spy(() => null)
   component.displayName = 'component'
 
-  const Counter = (0, _.compose)(
-    (0, _.withState)('counter', 'updateCounter', 0),
-    (0, _.withState)('foobar', 'updateFoobar', 'foobar'),
-    _.onlyUpdateForPropTypes,
-    (0, _.setPropTypes)({ counter: _propTypes2.default.number })
+  const Counter = (0, _compose2.default)(
+    (0, _withState2.default)('counter', 'updateCounter', 0),
+    (0, _withState2.default)('foobar', 'updateFoobar', 'foobar'),
+    _onlyUpdateForPropTypes2.default,
+    (0, _setPropTypes2.default)({ counter: _propTypes2.default.number })
   )(component)
 
   expect(Counter.displayName).toBe(
@@ -52,7 +66,7 @@ test('onlyUpdateForPropTypes only updates for props specified in propTypes', () 
 
 test('onlyUpdateForPropTypes warns if BaseComponent does not have any propTypes', () => {
   const error = _sinon2.default.stub(console, 'error')
-  const ShouldWarn = (0, _.onlyUpdateForPropTypes)('div')
+  const ShouldWarn = (0, _onlyUpdateForPropTypes2.default)('div')
   ;(0, _enzyme.shallow)(_react2.default.createElement(ShouldWarn, null))
 
   expect(error.firstCall.args[0]).toBe(
