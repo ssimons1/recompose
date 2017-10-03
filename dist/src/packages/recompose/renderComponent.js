@@ -1,18 +1,18 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _createEagerFactory = require('./createEagerFactory')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _createEagerFactory2 = _interopRequireDefault(_createEagerFactory)
+var _createEagerFactory = require('./createEagerFactory');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _createEagerFactory2 = _interopRequireDefault(_createEagerFactory);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name renderComponent
@@ -43,22 +43,19 @@ function _interopRequireDefault(obj) {
  * )
  */
 
-const renderComponent = function renderComponent(Component) {
-  return function(_) {
-    const factory = (0, _createEagerFactory2.default)(Component)
-    const RenderComponent = function RenderComponent(props) {
-      return factory(props)
-    }
+var renderComponent = function renderComponent(Component) {
+  return function (_) {
+    var factory = (0, _createEagerFactory2.default)(Component);
+    var RenderComponent = function RenderComponent(props) {
+      return factory(props);
+    };
     if (process.env.NODE_ENV !== 'production') {
-      RenderComponent.displayName = (0, _wrapDisplayName2.default)(
-        Component,
-        'renderComponent'
-      )
+      RenderComponent.displayName = (0, _wrapDisplayName2.default)(Component, 'renderComponent');
     }
-    return RenderComponent
-  }
-}
+    return RenderComponent;
+  };
+};
 
-exports.default = renderComponent
+exports.default = renderComponent;
 
-// # sourceMappingURL=renderComponent.js.map
+//# sourceMappingURL=renderComponent.js.map

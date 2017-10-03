@@ -1,102 +1,98 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _sinon = require('sinon')
+var _enzyme = require('enzyme');
 
-const _sinon2 = _interopRequireDefault(_sinon)
+var _sinon = require('sinon');
 
-const _withReducer = require('../withReducer')
+var _sinon2 = _interopRequireDefault(_sinon);
 
-const _withReducer2 = _interopRequireDefault(_withReducer)
+var _withReducer = require('../withReducer');
 
-const _compose = require('../compose')
+var _withReducer2 = _interopRequireDefault(_withReducer);
 
-const _compose2 = _interopRequireDefault(_compose)
+var _compose = require('../compose');
 
-const _flattenProp = require('../flattenProp')
+var _compose2 = _interopRequireDefault(_compose);
 
-const _flattenProp2 = _interopRequireDefault(_flattenProp)
+var _flattenProp = require('../flattenProp');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _flattenProp2 = _interopRequireDefault(_flattenProp);
 
-const SET_COUNTER = 'SET_COUNTER'
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-test('adds a stateful value and a function for updating it', () => {
-  const component = _sinon2.default.spy(() => null)
-  component.displayName = 'component'
+var SET_COUNTER = 'SET_COUNTER';
 
-  const initialState = { counter: 0 }
+test('adds a stateful value and a function for updating it', function () {
+  var component = _sinon2.default.spy(function () {
+    return null;
+  });
+  component.displayName = 'component';
 
-  const reducer = function reducer(state, action) {
-    return action.type === SET_COUNTER ? { counter: action.payload } : state
-  }
+  var initialState = { counter: 0 };
 
-  const Counter = (0, _compose2.default)(
-    (0, _withReducer2.default)('state', 'dispatch', reducer, initialState),
-    (0, _flattenProp2.default)('state')
-  )(component)
+  var reducer = function reducer(state, action) {
+    return action.type === SET_COUNTER ? { counter: action.payload } : state;
+  };
 
-  expect(Counter.displayName).toBe('withReducer(flattenProp(component))')
-  ;(0, _enzyme.mount)(_react2.default.createElement(Counter, null))
-  const dispatch = component.firstCall.args[0].dispatch
+  var Counter = (0, _compose2.default)((0, _withReducer2.default)('state', 'dispatch', reducer, initialState), (0, _flattenProp2.default)('state'))(component);
 
-  expect(component.lastCall.args[0].counter).toBe(0)
+  expect(Counter.displayName).toBe('withReducer(flattenProp(component))');
 
-  dispatch({ type: SET_COUNTER, payload: 18 })
-  expect(component.lastCall.args[0].counter).toBe(18)
-})
+  (0, _enzyme.mount)(_react2.default.createElement(Counter, null));
+  var dispatch = component.firstCall.args[0].dispatch;
 
-test('calls initialState when it is a function', () => {
-  const component = _sinon2.default.spy(() => null)
-  component.displayName = 'component'
 
-  const initialState = function initialState(_ref) {
-    const initialCount = _ref.initialCount
-    return { counter: initialCount }
-  }
+  expect(component.lastCall.args[0].counter).toBe(0);
 
-  const reducer = function reducer(state, action) {
-    return action.type === SET_COUNTER ? { counter: action.payload } : state
-  }
+  dispatch({ type: SET_COUNTER, payload: 18 });
+  expect(component.lastCall.args[0].counter).toBe(18);
+});
 
-  const Counter = (0, _compose2.default)(
-    (0, _withReducer2.default)('state', 'dispatch', reducer, initialState),
-    (0, _flattenProp2.default)('state')
-  )(component)
-  ;(0, _enzyme.mount)(
-    _react2.default.createElement(Counter, { initialCount: 10 })
-  )
+test('calls initialState when it is a function', function () {
+  var component = _sinon2.default.spy(function () {
+    return null;
+  });
+  component.displayName = 'component';
 
-  expect(component.lastCall.args[0].counter).toBe(10)
-})
+  var initialState = function initialState(_ref) {
+    var initialCount = _ref.initialCount;
+    return { counter: initialCount };
+  };
 
-test('receives state from reducer when initialState is not provided', () => {
-  const component = _sinon2.default.spy(() => null)
-  component.displayName = 'component'
+  var reducer = function reducer(state, action) {
+    return action.type === SET_COUNTER ? { counter: action.payload } : state;
+  };
 
-  const initialState = { counter: 0 }
+  var Counter = (0, _compose2.default)((0, _withReducer2.default)('state', 'dispatch', reducer, initialState), (0, _flattenProp2.default)('state'))(component);
 
-  const reducer = function reducer() {
-    const state =
-      arguments.length > 0 && arguments[0] !== undefined
-        ? arguments[0]
-        : initialState
-    const action = arguments[1]
-    return action.type === SET_COUNTER ? { counter: action.payload } : state
-  }
+  (0, _enzyme.mount)(_react2.default.createElement(Counter, { initialCount: 10 }));
 
-  const Counter = (0, _compose2.default)(
-    (0, _withReducer2.default)('state', 'dispatch', reducer),
-    (0, _flattenProp2.default)('state')
-  )(component)
-  ;(0, _enzyme.mount)(_react2.default.createElement(Counter, null))
+  expect(component.lastCall.args[0].counter).toBe(10);
+});
 
-  expect(component.lastCall.args[0].counter).toBe(0)
-})
+test('receives state from reducer when initialState is not provided', function () {
+  var component = _sinon2.default.spy(function () {
+    return null;
+  });
+  component.displayName = 'component';
 
-// # sourceMappingURL=withReducer-test.js.map
+  var initialState = { counter: 0 };
+
+  var reducer = function reducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+    return action.type === SET_COUNTER ? { counter: action.payload } : state;
+  };
+
+  var Counter = (0, _compose2.default)((0, _withReducer2.default)('state', 'dispatch', reducer), (0, _flattenProp2.default)('state'))(component);
+
+  (0, _enzyme.mount)(_react2.default.createElement(Counter, null));
+
+  expect(component.lastCall.args[0].counter).toBe(0);
+});
+
+//# sourceMappingURL=withReducer-test.js.map

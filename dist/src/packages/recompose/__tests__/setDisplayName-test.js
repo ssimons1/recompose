@@ -1,21 +1,21 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _setDisplayName = require('../setDisplayName')
+var _react2 = _interopRequireDefault(_react);
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('../setDisplayName');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-test('setDisplayName sets a static property on the base component', () => {
-  const BaseComponent = function BaseComponent() {
-    return _react2.default.createElement('div', null)
-  }
-  const NewComponent = (0, _setDisplayName2.default)('Foo')(BaseComponent)
-  expect(NewComponent.displayName).toBe('Foo')
-})
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// # sourceMappingURL=setDisplayName-test.js.map
+test('setDisplayName sets a static property on the base component', function () {
+  var BaseComponent = function BaseComponent() {
+    return _react2.default.createElement('div', null);
+  };
+  var NewComponent = (0, _setDisplayName2.default)('Foo')(BaseComponent);
+  expect(NewComponent.displayName).toBe('Foo');
+});
+
+//# sourceMappingURL=setDisplayName-test.js.map

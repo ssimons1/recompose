@@ -1,51 +1,53 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _nest = require('../nest')
+var _enzyme = require('enzyme');
 
-const _nest2 = _interopRequireDefault(_nest)
+var _nest = require('../nest');
 
-const _setDisplayName = require('../setDisplayName')
+var _nest2 = _interopRequireDefault(_nest);
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('../setDisplayName');
 
-const _toClass = require('../toClass')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _toClass2 = _interopRequireDefault(_toClass)
+var _toClass = require('../toClass');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _toClass2 = _interopRequireDefault(_toClass);
 
-test('nest nests components from outer to inner', () => {
-  const A = (0, _setDisplayName2.default)('A')((0, _toClass2.default)('div'))
-  const B = (0, _setDisplayName2.default)('B')((0, _toClass2.default)('div'))
-  const C = (0, _setDisplayName2.default)('C')((0, _toClass2.default)('div'))
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  const Nest = (0, _nest2.default)(A, B, C)
+test('nest nests components from outer to inner', function () {
+  var A = (0, _setDisplayName2.default)('A')((0, _toClass2.default)('div'));
+  var B = (0, _setDisplayName2.default)('B')((0, _toClass2.default)('div'));
+  var C = (0, _setDisplayName2.default)('C')((0, _toClass2.default)('div'));
 
-  expect(Nest.displayName).toBe('nest(A, B, C)')
+  var Nest = (0, _nest2.default)(A, B, C);
 
-  const wrapper = (0, _enzyme.shallow)(
-    _react2.default.createElement(Nest, { pass: 'through' }, 'Child')
-  )
+  expect(Nest.displayName).toBe('nest(A, B, C)');
 
-  expect(
-    wrapper.equals(
+  var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(
+    Nest,
+    { pass: 'through' },
+    'Child'
+  ));
+
+  expect(wrapper.equals(_react2.default.createElement(
+    A,
+    { pass: 'through' },
+    _react2.default.createElement(
+      B,
+      { pass: 'through' },
       _react2.default.createElement(
-        A,
+        C,
         { pass: 'through' },
-        _react2.default.createElement(
-          B,
-          { pass: 'through' },
-          _react2.default.createElement(C, { pass: 'through' }, 'Child')
-        )
+        'Child'
       )
     )
-  ).toBe(true)
-})
+  ))).toBe(true);
+});
 
-// # sourceMappingURL=nest-test.js.map
+//# sourceMappingURL=nest-test.js.map

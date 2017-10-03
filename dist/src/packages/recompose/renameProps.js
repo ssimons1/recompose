@@ -1,30 +1,30 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _omit = require('./utils/omit')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _omit2 = _interopRequireDefault(_omit)
+var _omit = require('./utils/omit');
 
-const _pick = require('./utils/pick')
+var _omit2 = _interopRequireDefault(_omit);
 
-const _pick2 = _interopRequireDefault(_pick)
+var _pick = require('./utils/pick');
 
-const _mapProps = require('./mapProps')
+var _pick2 = _interopRequireDefault(_pick);
 
-const _mapProps2 = _interopRequireDefault(_mapProps)
+var _mapProps = require('./mapProps');
 
-const _setDisplayName = require('./setDisplayName')
+var _mapProps2 = _interopRequireDefault(_mapProps);
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name renameProps
@@ -32,39 +32,33 @@ function _interopRequireDefault(obj) {
  * @param {object} nameMap
  */
 
-const keys = Object.keys
+var keys = Object.keys;
 
-const mapKeys = function mapKeys(obj, func) {
-  return keys(obj).reduce((result, key) => {
-    const val = obj[key]
+
+var mapKeys = function mapKeys(obj, func) {
+  return keys(obj).reduce(function (result, key) {
+    var val = obj[key];
     /* eslint-disable no-param-reassign */
-    result[func(val, key)] = val
+    result[func(val, key)] = val;
     /* eslint-enable no-param-reassign */
-    return result
-  }, {})
-}
+    return result;
+  }, {});
+};
 
-const renameProps = function renameProps(nameMap) {
-  const hoc = (0, _mapProps2.default)(props =>
-    Object.assign(
-      {},
-      (0, _omit2.default)(props, keys(nameMap)),
-      mapKeys(
-        (0, _pick2.default)(props, keys(nameMap)),
-        (_, oldName) => nameMap[oldName]
-      )
-    )
-  )
+var renameProps = function renameProps(nameMap) {
+  var hoc = (0, _mapProps2.default)(function (props) {
+    return Object.assign({}, (0, _omit2.default)(props, keys(nameMap)), mapKeys((0, _pick2.default)(props, keys(nameMap)), function (_, oldName) {
+      return nameMap[oldName];
+    }));
+  });
   if (process.env.NODE_ENV !== 'production') {
-    return function(BaseComponent) {
-      return (0, _setDisplayName2.default)(
-        (0, _wrapDisplayName2.default)(BaseComponent, 'renameProps')
-      )(hoc(BaseComponent))
-    }
+    return function (BaseComponent) {
+      return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'renameProps'))(hoc(BaseComponent));
+    };
   }
-  return hoc
-}
+  return hoc;
+};
 
-exports.default = renameProps
+exports.default = renameProps;
 
-// # sourceMappingURL=renameProps.js.map
+//# sourceMappingURL=renameProps.js.map

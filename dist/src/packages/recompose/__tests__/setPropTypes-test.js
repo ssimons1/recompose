@@ -1,30 +1,28 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _propTypes = require('prop-types')
+var _react2 = _interopRequireDefault(_react);
 
-const _propTypes2 = _interopRequireDefault(_propTypes)
+var _propTypes = require('prop-types');
 
-const _setPropTypes = require('../setPropTypes')
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
-const _setPropTypes2 = _interopRequireDefault(_setPropTypes)
+var _setPropTypes = require('../setPropTypes');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _setPropTypes2 = _interopRequireDefault(_setPropTypes);
 
-test('setPropTypes sets a static property on the base component', () => {
-  const BaseComponent = function BaseComponent() {
-    return _react2.default.createElement('div', null)
-  }
-  const NewComponent = (0, _setPropTypes2.default)({
-    foo: _propTypes2.default.object,
-  })(BaseComponent)
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+test('setPropTypes sets a static property on the base component', function () {
+  var BaseComponent = function BaseComponent() {
+    return _react2.default.createElement('div', null);
+  };
+  var NewComponent = (0, _setPropTypes2.default)({ foo: _propTypes2.default.object })(BaseComponent);
 
   expect(NewComponent.propTypes).toEqual({
-    foo: _propTypes2.default.object,
-  })
-})
+    foo: _propTypes2.default.object
+  });
+});
 
-// # sourceMappingURL=setPropTypes-test.js.map
+//# sourceMappingURL=setPropTypes-test.js.map

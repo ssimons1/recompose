@@ -1,40 +1,28 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _omit = require('./utils/omit')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _omit2 = _interopRequireDefault(_omit)
+var _omit = require('./utils/omit');
 
-const _mapProps = require('./mapProps')
+var _omit2 = _interopRequireDefault(_omit);
 
-const _mapProps2 = _interopRequireDefault(_mapProps)
+var _mapProps = require('./mapProps');
 
-const _setDisplayName = require('./setDisplayName')
+var _mapProps2 = _interopRequireDefault(_mapProps);
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value,
-      enumerable: true,
-      configurable: true,
-      writable: true,
-    })
-  } else {
-    obj[key] = value
-  }
-  return obj
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
  * @name renameProp
@@ -43,24 +31,18 @@ function _defineProperty(obj, key, value) {
  * @param {string} newName 
  */
 
-const renameProp = function renameProp(oldName, newName) {
-  const hoc = (0, _mapProps2.default)(props =>
-    Object.assign(
-      {},
-      (0, _omit2.default)(props, [oldName]),
-      _defineProperty({}, newName, props[oldName])
-    )
-  )
+var renameProp = function renameProp(oldName, newName) {
+  var hoc = (0, _mapProps2.default)(function (props) {
+    return Object.assign({}, (0, _omit2.default)(props, [oldName]), _defineProperty({}, newName, props[oldName]));
+  });
   if (process.env.NODE_ENV !== 'production') {
-    return function(BaseComponent) {
-      return (0, _setDisplayName2.default)(
-        (0, _wrapDisplayName2.default)(BaseComponent, 'renameProp')
-      )(hoc(BaseComponent))
-    }
+    return function (BaseComponent) {
+      return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'renameProp'))(hoc(BaseComponent));
+    };
   }
-  return hoc
-}
+  return hoc;
+};
 
-exports.default = renameProp
+exports.default = renameProp;
 
-// # sourceMappingURL=renameProp.js.map
+//# sourceMappingURL=renameProp.js.map

@@ -1,22 +1,22 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _setDisplayName = require('./setDisplayName')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-const _createEagerFactory = require('./createEagerFactory')
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
 
-const _createEagerFactory2 = _interopRequireDefault(_createEagerFactory)
+var _createEagerFactory = require('./createEagerFactory');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _createEagerFactory2 = _interopRequireDefault(_createEagerFactory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name defaultProps
@@ -25,22 +25,20 @@ function _interopRequireDefault(obj) {
  * @param {object} props 
  */
 
-const defaultProps = function defaultProps(props) {
-  return function(BaseComponent) {
-    const factory = (0, _createEagerFactory2.default)(BaseComponent)
-    const DefaultProps = function DefaultProps(ownerProps) {
-      return factory(ownerProps)
-    }
-    DefaultProps.defaultProps = props
+var defaultProps = function defaultProps(props) {
+  return function (BaseComponent) {
+    var factory = (0, _createEagerFactory2.default)(BaseComponent);
+    var DefaultProps = function DefaultProps(ownerProps) {
+      return factory(ownerProps);
+    };
+    DefaultProps.defaultProps = props;
     if (process.env.NODE_ENV !== 'production') {
-      return (0, _setDisplayName2.default)(
-        (0, _wrapDisplayName2.default)(BaseComponent, 'defaultProps')
-      )(DefaultProps)
+      return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'defaultProps'))(DefaultProps);
     }
-    return DefaultProps
-  }
-}
+    return DefaultProps;
+  };
+};
 
-exports.default = defaultProps
+exports.default = defaultProps;
 
-// # sourceMappingURL=defaultProps.js.map
+//# sourceMappingURL=defaultProps.js.map

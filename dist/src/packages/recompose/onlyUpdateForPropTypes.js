@@ -1,26 +1,26 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _onlyUpdateForKeys = require('./onlyUpdateForKeys')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _onlyUpdateForKeys2 = _interopRequireDefault(_onlyUpdateForKeys)
+var _onlyUpdateForKeys = require('./onlyUpdateForKeys');
 
-const _setDisplayName = require('./setDisplayName')
+var _onlyUpdateForKeys2 = _interopRequireDefault(_onlyUpdateForKeys);
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-const _getDisplayName = require('./getDisplayName')
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
 
-const _getDisplayName2 = _interopRequireDefault(_getDisplayName)
+var _getDisplayName = require('./getDisplayName');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _getDisplayName2 = _interopRequireDefault(_getDisplayName);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name onlyUpdateForPropTypes
@@ -47,36 +47,26 @@ function _interopRequireDefault(obj) {
  * )
  */
 
-const onlyUpdateForPropTypes = function onlyUpdateForPropTypes(BaseComponent) {
-  const propTypes = BaseComponent.propTypes
+var onlyUpdateForPropTypes = function onlyUpdateForPropTypes(BaseComponent) {
+  var propTypes = BaseComponent.propTypes;
 
   if (process.env.NODE_ENV !== 'production') {
     if (!propTypes) {
       /* eslint-disable */
-      console.error(
-        'A component without any `propTypes` was passed to ' +
-          '`onlyUpdateForPropTypes()`. Check the implementation of the ' +
-          ('component with display name "' +
-            (0, _getDisplayName2.default)(BaseComponent) +
-            '".')
-      )
+      console.error('A component without any `propTypes` was passed to ' + '`onlyUpdateForPropTypes()`. Check the implementation of the ' + ('component with display name "' + (0, _getDisplayName2.default)(BaseComponent) + '".'));
       /* eslint-enable */
     }
   }
 
-  const propKeys = Object.keys(propTypes || {})
-  const OnlyUpdateForPropTypes = (0, _onlyUpdateForKeys2.default)(propKeys)(
-    BaseComponent
-  )
+  var propKeys = Object.keys(propTypes || {});
+  var OnlyUpdateForPropTypes = (0, _onlyUpdateForKeys2.default)(propKeys)(BaseComponent);
 
   if (process.env.NODE_ENV !== 'production') {
-    return (0, _setDisplayName2.default)(
-      (0, _wrapDisplayName2.default)(BaseComponent, 'onlyUpdateForPropTypes')
-    )(OnlyUpdateForPropTypes)
+    return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'onlyUpdateForPropTypes'))(OnlyUpdateForPropTypes);
   }
-  return OnlyUpdateForPropTypes
-}
+  return OnlyUpdateForPropTypes;
+};
 
-exports.default = onlyUpdateForPropTypes
+exports.default = onlyUpdateForPropTypes;
 
-// # sourceMappingURL=onlyUpdateForPropTypes.js.map
+//# sourceMappingURL=onlyUpdateForPropTypes.js.map

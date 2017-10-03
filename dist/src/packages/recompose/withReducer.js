@@ -1,92 +1,34 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _createClass = (function() {
-  function defineProperties(target, props) {
-    for (let i = 0; i < props.length; i++) {
-      const descriptor = props[i]
-      descriptor.enumerable = descriptor.enumerable || false
-      descriptor.configurable = true
-      if ('value' in descriptor) descriptor.writable = true
-      Object.defineProperty(target, descriptor.key, descriptor)
-    }
-  }
-  return function(Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps)
-    if (staticProps) defineProperties(Constructor, staticProps)
-    return Constructor
-  }
-})()
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _react = require('react')
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-const _setDisplayName = require('./setDisplayName')
+var _react = require('react');
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-const _createEagerFactory = require('./createEagerFactory')
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
 
-const _createEagerFactory2 = _interopRequireDefault(_createEagerFactory)
+var _createEagerFactory = require('./createEagerFactory');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _createEagerFactory2 = _interopRequireDefault(_createEagerFactory);
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value,
-      enumerable: true,
-      configurable: true,
-      writable: true,
-    })
-  } else {
-    obj[key] = value
-  }
-  return obj
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError('Cannot call a class as a function')
-  }
-}
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _possibleConstructorReturn(self, call) {
-  if (!self) {
-    throw new ReferenceError(
-      "this hasn't been initialised - super() hasn't been called"
-    )
-  }
-  return call && (typeof call === 'object' || typeof call === 'function')
-    ? call
-    : self
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== 'function' && superClass !== null) {
-    throw new TypeError(
-      `Super expression must either be null or a function, not ${typeof superClass}`
-    )
-  }
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true,
-    },
-  })
-  if (superClass)
-    Object.setPrototypeOf
-      ? Object.setPrototypeOf(subClass, superClass)
-      : (subClass.__proto__ = superClass)
-}
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
  * @name withReducer
@@ -98,110 +40,63 @@ function _inherits(subClass, superClass) {
  * @param {custom | function} initialState 
  */
 
-const withReducer = function withReducer(
-  stateName,
-  dispatchName,
-  reducer,
-  initialState
-) {
-  return function(BaseComponent) {
-    const factory = (0, _createEagerFactory2.default)(BaseComponent)
+var withReducer = function withReducer(stateName, dispatchName, reducer, initialState) {
+  return function (BaseComponent) {
+    var factory = (0, _createEagerFactory2.default)(BaseComponent);
 
-    const WithReducer = (function(_Component) {
-      _inherits(WithReducer, _Component)
+    var WithReducer = function (_Component) {
+      _inherits(WithReducer, _Component);
 
       function WithReducer() {
-        let _ref
+        var _ref;
 
-        let _temp, _this, _ret
+        var _temp, _this, _ret;
 
-        _classCallCheck(this, WithReducer)
+        _classCallCheck(this, WithReducer);
 
-        for (
-          var _len = arguments.length, args = Array(_len), _key = 0;
-          _key < _len;
-          _key++
-        ) {
-          args[_key] = arguments[_key]
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
         }
 
-        return (_ret = (
-          (_temp = (
-            (_this = _possibleConstructorReturn(
-              this,
-              (_ref =
-                WithReducer.__proto__ ||
-                Object.getPrototypeOf(WithReducer)).call.apply(
-                _ref,
-                [this].concat(args)
-              )
-            )),
-            _this
-          )),
-          (_this.state = {
-            stateValue: _this.initializeStateValue(),
-          }),
-          (_this.dispatch = function(action) {
-            return _this.setState(_ref2 => {
-              const stateValue = _ref2.stateValue
-              return {
-                stateValue: reducer(stateValue, action),
-              }
-            })
-          }),
-          _temp
-        )), _possibleConstructorReturn(_this, _ret)
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = WithReducer.__proto__ || Object.getPrototypeOf(WithReducer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+          stateValue: _this.initializeStateValue()
+        }, _this.dispatch = function (action) {
+          return _this.setState(function (_ref2) {
+            var stateValue = _ref2.stateValue;
+            return {
+              stateValue: reducer(stateValue, action)
+            };
+          });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
       }
 
-      _createClass(WithReducer, [
-        {
-          key: 'initializeStateValue',
-          value: function initializeStateValue() {
-            if (initialState !== undefined) {
-              return typeof initialState === 'function'
-                ? initialState(this.props)
-                : initialState
-            }
-            return reducer(undefined, { type: '@@recompose/INIT' })
-          },
-        },
-        {
-          key: 'render',
-          value: function render() {
-            let _Object$assign
+      _createClass(WithReducer, [{
+        key: 'initializeStateValue',
+        value: function initializeStateValue() {
+          if (initialState !== undefined) {
+            return typeof initialState === 'function' ? initialState(this.props) : initialState;
+          }
+          return reducer(undefined, { type: '@@recompose/INIT' });
+        }
+      }, {
+        key: 'render',
+        value: function render() {
+          var _Object$assign;
 
-            return factory(
-              Object.assign(
-                {},
-                this.props,
-                (
-                  (_Object$assign = {}),
-                  _defineProperty(
-                    _Object$assign,
-                    stateName,
-                    this.state.stateValue
-                  ),
-                  _defineProperty(_Object$assign, dispatchName, this.dispatch),
-                  _Object$assign
-                )
-              )
-            )
-          },
-        },
-      ])
+          return factory(Object.assign({}, this.props, (_Object$assign = {}, _defineProperty(_Object$assign, stateName, this.state.stateValue), _defineProperty(_Object$assign, dispatchName, this.dispatch), _Object$assign)));
+        }
+      }]);
 
-      return WithReducer
-    })(_react.Component)
+      return WithReducer;
+    }(_react.Component);
 
     if (process.env.NODE_ENV !== 'production') {
-      return (0, _setDisplayName2.default)(
-        (0, _wrapDisplayName2.default)(BaseComponent, 'withReducer')
-      )(WithReducer)
+      return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'withReducer'))(WithReducer);
     }
-    return WithReducer
-  }
-}
+    return WithReducer;
+  };
+};
 
-exports.default = withReducer
+exports.default = withReducer;
 
-// # sourceMappingURL=withReducer.js.map
+//# sourceMappingURL=withReducer.js.map

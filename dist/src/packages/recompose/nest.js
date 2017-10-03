@@ -1,28 +1,20 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _createEagerFactory = require('./createEagerFactory')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _createEagerFactory2 = _interopRequireDefault(_createEagerFactory)
+var _createEagerFactory = require('./createEagerFactory');
 
-const _getDisplayName = require('./getDisplayName')
+var _createEagerFactory2 = _interopRequireDefault(_createEagerFactory);
 
-const _getDisplayName2 = _interopRequireDefault(_getDisplayName)
+var _getDisplayName = require('./getDisplayName');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _getDisplayName2 = _interopRequireDefault(_getDisplayName);
 
-function _objectWithoutProperties(obj, keys) {
-  const target = {}
-  for (const i in obj) {
-    if (keys.indexOf(i) >= 0) continue
-    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue
-    target[i] = obj[i]
-  }
-  return target
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 /**
  * @name nest
@@ -44,34 +36,29 @@ function _objectWithoutProperties(obj, keys) {
  * </A>
  */
 
-const nest = function nest() {
-  for (
-    var _len = arguments.length, Components = Array(_len), _key = 0;
-    _key < _len;
-    _key++
-  ) {
-    Components[_key] = arguments[_key]
+var nest = function nest() {
+  for (var _len = arguments.length, Components = Array(_len), _key = 0; _key < _len; _key++) {
+    Components[_key] = arguments[_key];
   }
 
-  const factories = Components.map(_createEagerFactory2.default)
-  const Nest = function Nest(_ref) {
-    let props = _objectWithoutProperties(_ref, []),
-      children = _ref.children
+  var factories = Components.map(_createEagerFactory2.default);
+  var Nest = function Nest(_ref) {
+    var props = _objectWithoutProperties(_ref, []),
+        children = _ref.children;
 
-    return factories.reduceRight(
-      (child, factory) => factory(props, child),
-      children
-    )
-  }
+    return factories.reduceRight(function (child, factory) {
+      return factory(props, child);
+    }, children);
+  };
 
   if (process.env.NODE_ENV !== 'production') {
-    const displayNames = Components.map(_getDisplayName2.default)
-    Nest.displayName = `nest(${displayNames.join(', ')})`
+    var displayNames = Components.map(_getDisplayName2.default);
+    Nest.displayName = 'nest(' + displayNames.join(', ') + ')';
   }
 
-  return Nest
-}
+  return Nest;
+};
 
-exports.default = nest
+exports.default = nest;
 
-// # sourceMappingURL=nest.js.map
+//# sourceMappingURL=nest.js.map

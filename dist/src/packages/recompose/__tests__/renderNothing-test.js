@@ -1,32 +1,28 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _renderNothing = require('../renderNothing')
+var _enzyme = require('enzyme');
 
-const _renderNothing2 = _interopRequireDefault(_renderNothing)
+var _renderNothing = require('../renderNothing');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _renderNothing2 = _interopRequireDefault(_renderNothing);
 
-test('renderNothing returns a component that renders null', () => {
-  const Nothing = (0, _renderNothing2.default)('div')
-  const wrapper = (0, _enzyme.shallow)(
-    _react2.default.createElement(Nothing, null)
-  )
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  const Parent = function Parent() {
-    return _react2.default.createElement(Nothing, null)
-  }
-  const parentWrapper = (0, _enzyme.shallow)(
-    _react2.default.createElement(Parent, null)
-  )
+test('renderNothing returns a component that renders null', function () {
+  var Nothing = (0, _renderNothing2.default)('div');
+  var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(Nothing, null));
 
-  expect(wrapper.type()).toBe(null)
-  expect(parentWrapper.text()).toBe('<Nothing />')
-})
+  var Parent = function Parent() {
+    return _react2.default.createElement(Nothing, null);
+  };
+  var parentWrapper = (0, _enzyme.shallow)(_react2.default.createElement(Parent, null));
 
-// # sourceMappingURL=renderNothing-test.js.map
+  expect(wrapper.type()).toBe(null);
+  expect(parentWrapper.text()).toBe('<Nothing />');
+});
+
+//# sourceMappingURL=renderNothing-test.js.map

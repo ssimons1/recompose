@@ -1,50 +1,34 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _flattenProp = require('../flattenProp')
+var _enzyme = require('enzyme');
 
-const _flattenProp2 = _interopRequireDefault(_flattenProp)
+var _flattenProp = require('../flattenProp');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _flattenProp2 = _interopRequireDefault(_flattenProp);
 
-test('flattenProps flattens an object prop and spreads it into the top-level props object', () => {
-  const Counter = (0, _flattenProp2.default)('data-state')('div')
-  expect(Counter.displayName).toBe('flattenProp(div)')
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  const wrapper = (0, _enzyme.shallow)(
-    _react2.default.createElement(Counter, {
-      'data-pass': 'through',
-      'data-state': { 'data-counter': 1 },
-    })
-  )
+test('flattenProps flattens an object prop and spreads it into the top-level props object', function () {
+  var Counter = (0, _flattenProp2.default)('data-state')('div');
+  expect(Counter.displayName).toBe('flattenProp(div)');
 
-  expect(
-    wrapper.equals(
-      _react2.default.createElement('div', {
-        'data-pass': 'through',
-        'data-state': { 'data-counter': 1 },
-        'data-counter': 1,
-      })
-    )
-  ).toBe(true)
+  var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(Counter, { 'data-pass': 'through', 'data-state': { 'data-counter': 1 } }));
+
+  expect(wrapper.equals(_react2.default.createElement('div', {
+    'data-pass': 'through',
+    'data-state': { 'data-counter': 1 },
+    'data-counter': 1
+  }))).toBe(true);
 
   wrapper.setProps({
     'data-pass': 'through',
-    'data-state': { 'data-state': 1 },
-  })
-  expect(
-    wrapper.equals(
-      _react2.default.createElement('div', {
-        'data-pass': 'through',
-        'data-state': 1,
-      })
-    )
-  ).toBe(true)
-})
+    'data-state': { 'data-state': 1 }
+  });
+  expect(wrapper.equals(_react2.default.createElement('div', { 'data-pass': 'through', 'data-state': 1 }))).toBe(true);
+});
 
-// # sourceMappingURL=flattenProp-test.js.map
+//# sourceMappingURL=flattenProp-test.js.map

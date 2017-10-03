@@ -1,22 +1,22 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _setDisplayName = require('./setDisplayName')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-const _createEagerFactory = require('./createEagerFactory')
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
 
-const _createEagerFactory2 = _interopRequireDefault(_createEagerFactory)
+var _createEagerFactory = require('./createEagerFactory');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _createEagerFactory2 = _interopRequireDefault(_createEagerFactory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name flattenProp
@@ -35,22 +35,20 @@ function _interopRequireDefault(obj) {
  * )
  */
 
-const flattenProp = function flattenProp(propName) {
-  return function(BaseComponent) {
-    const factory = (0, _createEagerFactory2.default)(BaseComponent)
-    const FlattenProp = function FlattenProp(props) {
-      return factory(Object.assign({}, props, props[propName]))
-    }
+var flattenProp = function flattenProp(propName) {
+  return function (BaseComponent) {
+    var factory = (0, _createEagerFactory2.default)(BaseComponent);
+    var FlattenProp = function FlattenProp(props) {
+      return factory(Object.assign({}, props, props[propName]));
+    };
 
     if (process.env.NODE_ENV !== 'production') {
-      return (0, _setDisplayName2.default)(
-        (0, _wrapDisplayName2.default)(BaseComponent, 'flattenProp')
-      )(FlattenProp)
+      return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'flattenProp'))(FlattenProp);
     }
-    return FlattenProp
-  }
-}
+    return FlattenProp;
+  };
+};
 
-exports.default = flattenProp
+exports.default = flattenProp;
 
-// # sourceMappingURL=flattenProp.js.map
+//# sourceMappingURL=flattenProp.js.map

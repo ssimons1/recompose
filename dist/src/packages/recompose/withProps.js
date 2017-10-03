@@ -1,22 +1,22 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _wrapDisplayName = require('./wrapDisplayName')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-const _setDisplayName = require('./setDisplayName')
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _mapProps = require('./mapProps')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _mapProps2 = _interopRequireDefault(_mapProps)
+var _mapProps = require('./mapProps');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _mapProps2 = _interopRequireDefault(_mapProps);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name withProps
@@ -25,20 +25,18 @@ function _interopRequireDefault(obj) {
  * @param {object} input 
  */
 
-const withProps = function withProps(input) {
-  const hoc = (0, _mapProps2.default)(props =>
-    Object.assign({}, props, typeof input === 'function' ? input(props) : input)
-  )
+var withProps = function withProps(input) {
+  var hoc = (0, _mapProps2.default)(function (props) {
+    return Object.assign({}, props, typeof input === 'function' ? input(props) : input);
+  });
   if (process.env.NODE_ENV !== 'production') {
-    return function(BaseComponent) {
-      return (0, _setDisplayName2.default)(
-        (0, _wrapDisplayName2.default)(BaseComponent, 'withProps')
-      )(hoc(BaseComponent))
-    }
+    return function (BaseComponent) {
+      return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'withProps'))(hoc(BaseComponent));
+    };
   }
-  return hoc
-}
+  return hoc;
+};
 
-exports.default = withProps
+exports.default = withProps;
 
-// # sourceMappingURL=withProps.js.map
+//# sourceMappingURL=withProps.js.map

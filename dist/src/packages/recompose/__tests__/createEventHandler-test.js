@@ -1,60 +1,54 @@
-const _createEventHandler3 = require('../createEventHandler')
+'use strict';
 
-const _createEventHandler4 = _interopRequireDefault(_createEventHandler3)
+var _createEventHandler3 = require('../createEventHandler');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _createEventHandler4 = _interopRequireDefault(_createEventHandler3);
 
-test('createEventHandler creates an event handler and a corresponding stream', () => {
-  const result = []
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  let _createEventHandler = (0, _createEventHandler4.default)(),
-    stream = _createEventHandler.stream,
-    handler = _createEventHandler.handler
+test('createEventHandler creates an event handler and a corresponding stream', function () {
+  var result = [];
 
-  const subscription = stream.subscribe({
-    next: function next(v) {
-      return result.push(v)
-    },
-  })
+  var _createEventHandler = (0, _createEventHandler4.default)(),
+      stream = _createEventHandler.stream,
+      handler = _createEventHandler.handler;
 
-  handler(1)
-  handler(2)
-  handler(3)
+  var subscription = stream.subscribe({ next: function next(v) {
+      return result.push(v);
+    } });
 
-  subscription.unsubscribe()
-  expect(result).toEqual([1, 2, 3])
-})
+  handler(1);
+  handler(2);
+  handler(3);
 
-test('handles multiple subscribers', () => {
-  const result1 = []
-  const result2 = []
+  subscription.unsubscribe();
+  expect(result).toEqual([1, 2, 3]);
+});
 
-  let _createEventHandler2 = (0, _createEventHandler4.default)(),
-    handler = _createEventHandler2.handler,
-    stream = _createEventHandler2.stream
+test('handles multiple subscribers', function () {
+  var result1 = [];
+  var result2 = [];
 
-  const subscription1 = stream.subscribe({
-    next: function next(v) {
-      return result1.push(v)
-    },
-  })
-  const subscription2 = stream.subscribe({
-    next: function next(v) {
-      return result2.push(v)
-    },
-  })
+  var _createEventHandler2 = (0, _createEventHandler4.default)(),
+      handler = _createEventHandler2.handler,
+      stream = _createEventHandler2.stream;
 
-  handler(1)
-  handler(2)
-  handler(3)
+  var subscription1 = stream.subscribe({ next: function next(v) {
+      return result1.push(v);
+    } });
+  var subscription2 = stream.subscribe({ next: function next(v) {
+      return result2.push(v);
+    } });
 
-  subscription1.unsubscribe()
-  subscription2.unsubscribe()
+  handler(1);
+  handler(2);
+  handler(3);
 
-  expect(result1).toEqual([1, 2, 3])
-  expect(result2).toEqual([1, 2, 3])
-})
+  subscription1.unsubscribe();
+  subscription2.unsubscribe();
 
-// # sourceMappingURL=createEventHandler-test.js.map
+  expect(result1).toEqual([1, 2, 3]);
+  expect(result2).toEqual([1, 2, 3]);
+});
+
+//# sourceMappingURL=createEventHandler-test.js.map

@@ -1,45 +1,33 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
-exports.mapPropsStreamWithConfig = undefined
+'use strict';
 
-const _symbolObservable = require('symbol-observable')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.mapPropsStreamWithConfig = undefined;
 
-const _symbolObservable2 = _interopRequireDefault(_symbolObservable)
+var _symbolObservable = require('symbol-observable');
 
-const _createEagerFactory = require('./createEagerFactory')
+var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 
-const _createEagerFactory2 = _interopRequireDefault(_createEagerFactory)
+var _createEagerFactory = require('./createEagerFactory');
 
-const _componentFromStream = require('./componentFromStream')
+var _createEagerFactory2 = _interopRequireDefault(_createEagerFactory);
 
-const _setDisplayName = require('./setDisplayName')
+var _componentFromStream = require('./componentFromStream');
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-const _setObservableConfig = require('./setObservableConfig')
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _setObservableConfig = require('./setObservableConfig');
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value,
-      enumerable: true,
-      configurable: true,
-      writable: true,
-    })
-  } else {
-    obj[key] = value
-  }
-  return obj
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
  * @name mapPropsStreamWithConfig
@@ -60,53 +48,42 @@ function _defineProperty(obj, key, value) {
  * 
  */
 
-const identity = function identity(t) {
-  return t
-}
+var identity = function identity(t) {
+  return t;
+};
 
-const mapPropsStreamWithConfig = (exports.mapPropsStreamWithConfig = function mapPropsStreamWithConfig(
-  config
-) {
-  const componentFromStream = (
-    0,
-    _componentFromStream.componentFromStreamWithConfig
-  )({
+var mapPropsStreamWithConfig = exports.mapPropsStreamWithConfig = function mapPropsStreamWithConfig(config) {
+  var componentFromStream = (0, _componentFromStream.componentFromStreamWithConfig)({
     fromESObservable: identity,
-    toESObservable: identity,
-  })
-  return function(transform) {
-    return function(BaseComponent) {
-      const factory = (0, _createEagerFactory2.default)(BaseComponent)
-      let fromESObservable = config.fromESObservable,
-        toESObservable = config.toESObservable
+    toESObservable: identity
+  });
+  return function (transform) {
+    return function (BaseComponent) {
+      var factory = (0, _createEagerFactory2.default)(BaseComponent);
+      var fromESObservable = config.fromESObservable,
+          toESObservable = config.toESObservable;
 
-      return componentFromStream(props$ =>
-        _defineProperty(
-          {
-            subscribe: function subscribe(observer) {
-              const subscription = toESObservable(
-                transform(fromESObservable(props$))
-              ).subscribe({
-                next: function next(childProps) {
-                  return observer.next(factory(childProps))
-                },
-              })
-              return {
-                unsubscribe: function unsubscribe() {
-                  return subscription.unsubscribe()
-                },
+      return componentFromStream(function (props$) {
+        return _defineProperty({
+          subscribe: function subscribe(observer) {
+            var subscription = toESObservable(transform(fromESObservable(props$))).subscribe({
+              next: function next(childProps) {
+                return observer.next(factory(childProps));
               }
-            },
-          },
-          _symbolObservable2.default,
-          function() {
-            return this
+            });
+            return {
+              unsubscribe: function unsubscribe() {
+                return subscription.unsubscribe();
+              }
+            };
           }
-        )
-      )
-    }
-  }
-})
+        }, _symbolObservable2.default, function () {
+          return this;
+        });
+      });
+    };
+  };
+};
 
 /**
  * @name mapPropsStream
@@ -116,19 +93,17 @@ const mapPropsStreamWithConfig = (exports.mapPropsStreamWithConfig = function ma
  * 
  */
 
-const mapPropsStream = function mapPropsStream(transform) {
-  const hoc = mapPropsStreamWithConfig(_setObservableConfig.config)(transform)
+var mapPropsStream = function mapPropsStream(transform) {
+  var hoc = mapPropsStreamWithConfig(_setObservableConfig.config)(transform);
 
   if (process.env.NODE_ENV !== 'production') {
-    return function(BaseComponent) {
-      return (0, _setDisplayName2.default)(
-        (0, _wrapDisplayName2.default)(BaseComponent, 'mapPropsStream')
-      )(hoc(BaseComponent))
-    }
+    return function (BaseComponent) {
+      return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'mapPropsStream'))(hoc(BaseComponent));
+    };
   }
-  return hoc
-}
+  return hoc;
+};
 
-exports.default = mapPropsStream
+exports.default = mapPropsStream;
 
-// # sourceMappingURL=mapPropsStream.js.map
+//# sourceMappingURL=mapPropsStream.js.map

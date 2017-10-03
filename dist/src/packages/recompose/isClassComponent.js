@@ -1,20 +1,18 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 /**
  * @name isClassComponent
  * @description Returns true if the given value is a React component class.
  * @param {any} Component 
  */
 
-const isClassComponent = function isClassComponent(Component) {
-  return Boolean(
-    Component &&
-      Component.prototype &&
-      typeof Component.prototype.render === 'function'
-  )
-}
+var isClassComponent = function isClassComponent(Component) {
+  return Boolean(Component && Component.prototype && typeof Component.prototype.render === 'function');
+};
 
-exports.default = isClassComponent
+exports.default = isClassComponent;
 
-// # sourceMappingURL=isClassComponent.js.map
+//# sourceMappingURL=isClassComponent.js.map

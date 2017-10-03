@@ -1,78 +1,33 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _createClass = (function() {
-  function defineProperties(target, props) {
-    for (let i = 0; i < props.length; i++) {
-      const descriptor = props[i]
-      descriptor.enumerable = descriptor.enumerable || false
-      descriptor.configurable = true
-      if ('value' in descriptor) descriptor.writable = true
-      Object.defineProperty(target, descriptor.key, descriptor)
-    }
-  }
-  return function(Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps)
-    if (staticProps) defineProperties(Constructor, staticProps)
-    return Constructor
-  }
-})()
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _react = require('react')
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-const _setDisplayName = require('./setDisplayName')
+var _react = require('react');
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-const _createEagerFactory = require('./createEagerFactory')
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
 
-const _createEagerFactory2 = _interopRequireDefault(_createEagerFactory)
+var _createEagerFactory = require('./createEagerFactory');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _createEagerFactory2 = _interopRequireDefault(_createEagerFactory);
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError('Cannot call a class as a function')
-  }
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _possibleConstructorReturn(self, call) {
-  if (!self) {
-    throw new ReferenceError(
-      "this hasn't been initialised - super() hasn't been called"
-    )
-  }
-  return call && (typeof call === 'object' || typeof call === 'function')
-    ? call
-    : self
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== 'function' && superClass !== null) {
-    throw new TypeError(
-      `Super expression must either be null or a function, not ${typeof superClass}`
-    )
-  }
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true,
-    },
-  })
-  if (superClass)
-    Object.setPrototypeOf
-      ? Object.setPrototypeOf(subClass, superClass)
-      : (subClass.__proto__ = superClass)
-} /* eslint-disable no-console */
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint-disable no-console */
+
 
 /**
  * @name lifecycle
@@ -81,56 +36,44 @@ function _inherits(subClass, superClass) {
  * @param {object} spec 
  */
 
-const lifecycle = function lifecycle(spec) {
-  return function(BaseComponent) {
-    const factory = (0, _createEagerFactory2.default)(BaseComponent)
+var lifecycle = function lifecycle(spec) {
+  return function (BaseComponent) {
+    var factory = (0, _createEagerFactory2.default)(BaseComponent);
 
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      spec.hasOwnProperty('render')
-    ) {
-      console.error(
-        'lifecycle() does not support the render method; its behavior is to ' +
-          'pass all props and state to the base component.'
-      )
+    if (process.env.NODE_ENV !== 'production' && spec.hasOwnProperty('render')) {
+      console.error('lifecycle() does not support the render method; its behavior is to ' + 'pass all props and state to the base component.');
     }
 
-    const Lifecycle = (function(_Component) {
-      _inherits(Lifecycle, _Component)
+    var Lifecycle = function (_Component) {
+      _inherits(Lifecycle, _Component);
 
       function Lifecycle() {
-        _classCallCheck(this, Lifecycle)
+        _classCallCheck(this, Lifecycle);
 
-        return _possibleConstructorReturn(
-          this,
-          (Lifecycle.__proto__ || Object.getPrototypeOf(Lifecycle))
-            .apply(this, arguments)
-        )
+        return _possibleConstructorReturn(this, (Lifecycle.__proto__ || Object.getPrototypeOf(Lifecycle)).apply(this, arguments));
       }
 
-      _createClass(Lifecycle, [
-        {
-          key: 'render',
-          value: function render() {
-            return factory(Object.assign({}, this.props, this.state))
-          },
-        },
-      ])
+      _createClass(Lifecycle, [{
+        key: 'render',
+        value: function render() {
+          return factory(Object.assign({}, this.props, this.state));
+        }
+      }]);
 
-      return Lifecycle
-    })(_react.Component)
+      return Lifecycle;
+    }(_react.Component);
 
-    Object.keys(spec).forEach(hook => (Lifecycle.prototype[hook] = spec[hook]))
+    Object.keys(spec).forEach(function (hook) {
+      return Lifecycle.prototype[hook] = spec[hook];
+    });
 
     if (process.env.NODE_ENV !== 'production') {
-      return (0, _setDisplayName2.default)(
-        (0, _wrapDisplayName2.default)(BaseComponent, 'lifecycle')
-      )(Lifecycle)
+      return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'lifecycle'))(Lifecycle);
     }
-    return Lifecycle
-  }
-}
+    return Lifecycle;
+  };
+};
 
-exports.default = lifecycle
+exports.default = lifecycle;
 
-// # sourceMappingURL=lifecycle.js.map
+//# sourceMappingURL=lifecycle.js.map

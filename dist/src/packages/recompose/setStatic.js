@@ -1,6 +1,8 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 /**
  * @name setStatic
  * @description Assigns a value to a static property on the base component. 
@@ -8,15 +10,15 @@ Object.defineProperty(exports, '__esModule', {
  * @param {any} value 
  */
 
-const setStatic = function setStatic(key, value) {
-  return function(BaseComponent) {
+var setStatic = function setStatic(key, value) {
+  return function (BaseComponent) {
     /* eslint-disable no-param-reassign */
-    BaseComponent[key] = value
+    BaseComponent[key] = value;
     /* eslint-enable no-param-reassign */
-    return BaseComponent
-  }
-}
+    return BaseComponent;
+  };
+};
 
-exports.default = setStatic
+exports.default = setStatic;
 
-// # sourceMappingURL=setStatic.js.map
+//# sourceMappingURL=setStatic.js.map

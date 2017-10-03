@@ -1,66 +1,39 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _defaultProps = require('../defaultProps')
+var _enzyme = require('enzyme');
 
-const _defaultProps2 = _interopRequireDefault(_defaultProps)
+var _defaultProps = require('../defaultProps');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _defaultProps2 = _interopRequireDefault(_defaultProps);
 
-test('defaultProps passes additional props to base component', () => {
-  const DoReMi = (0, _defaultProps2.default)({
-    'data-so': 'do',
-    'data-la': 'fa',
-  })('div')
-  expect(DoReMi.displayName).toBe('defaultProps(div)')
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  const div = (0, _enzyme.shallow)(
-    _react2.default.createElement(DoReMi, null)
-  ).find('div')
-  expect(
-    div.equals(
-      _react2.default.createElement('div', { 'data-so': 'do', 'data-la': 'fa' })
-    )
-  ).toBe(true)
-})
+test('defaultProps passes additional props to base component', function () {
+  var DoReMi = (0, _defaultProps2.default)({ 'data-so': 'do', 'data-la': 'fa' })('div');
+  expect(DoReMi.displayName).toBe('defaultProps(div)');
 
-test('defaultProps has lower precendence than props from owner', () => {
-  const DoReMi = (0, _defaultProps2.default)({
-    'data-so': 'do',
-    'data-la': 'fa',
-  })('div')
-  expect(DoReMi.displayName).toBe('defaultProps(div)')
+  var div = (0, _enzyme.shallow)(_react2.default.createElement(DoReMi, null)).find('div');
+  expect(div.equals(_react2.default.createElement('div', { 'data-so': 'do', 'data-la': 'fa' }))).toBe(true);
+});
 
-  const div = (0, _enzyme.shallow)(
-    _react2.default.createElement(DoReMi, { 'data-la': 'ti' })
-  ).find('div')
-  expect(
-    div.equals(
-      _react2.default.createElement('div', { 'data-so': 'do', 'data-la': 'ti' })
-    )
-  ).toBe(true)
-})
+test('defaultProps has lower precendence than props from owner', function () {
+  var DoReMi = (0, _defaultProps2.default)({ 'data-so': 'do', 'data-la': 'fa' })('div');
+  expect(DoReMi.displayName).toBe('defaultProps(div)');
 
-test('defaultProps overrides undefined owner props', () => {
-  const DoReMi = (0, _defaultProps2.default)({
-    'data-so': 'do',
-    'data-la': 'fa',
-  })('div')
-  expect(DoReMi.displayName).toBe('defaultProps(div)')
+  var div = (0, _enzyme.shallow)(_react2.default.createElement(DoReMi, { 'data-la': 'ti' })).find('div');
+  expect(div.equals(_react2.default.createElement('div', { 'data-so': 'do', 'data-la': 'ti' }))).toBe(true);
+});
 
-  const div = (0, _enzyme.shallow)(
-    _react2.default.createElement(DoReMi, { 'data-la': undefined })
-  ).find('div')
-  expect(
-    div.equals(
-      _react2.default.createElement('div', { 'data-so': 'do', 'data-la': 'fa' })
-    )
-  ).toBe(true)
-})
+test('defaultProps overrides undefined owner props', function () {
+  var DoReMi = (0, _defaultProps2.default)({ 'data-so': 'do', 'data-la': 'fa' })('div');
+  expect(DoReMi.displayName).toBe('defaultProps(div)');
 
-// # sourceMappingURL=defaultProps-test.js.map
+  var div = (0, _enzyme.shallow)(_react2.default.createElement(DoReMi, { 'data-la': undefined })).find('div');
+  expect(div.equals(_react2.default.createElement('div', { 'data-so': 'do', 'data-la': 'fa' }))).toBe(true);
+});
+
+//# sourceMappingURL=defaultProps-test.js.map

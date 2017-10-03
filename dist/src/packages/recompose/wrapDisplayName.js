@@ -1,14 +1,14 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _getDisplayName = require('./getDisplayName')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _getDisplayName2 = _interopRequireDefault(_getDisplayName)
+var _getDisplayName = require('./getDisplayName');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _getDisplayName2 = _interopRequireDefault(_getDisplayName);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name wrapDisplayName
@@ -17,10 +17,10 @@ function _interopRequireDefault(obj) {
  * @param {string} hocName
  */
 
-const wrapDisplayName = function wrapDisplayName(BaseComponent, hocName) {
-  return `${hocName}(${(0, _getDisplayName2.default)(BaseComponent)})`
-}
+var wrapDisplayName = function wrapDisplayName(BaseComponent, hocName) {
+  return hocName + '(' + (0, _getDisplayName2.default)(BaseComponent) + ')';
+};
 
-exports.default = wrapDisplayName
+exports.default = wrapDisplayName;
 
-// # sourceMappingURL=wrapDisplayName.js.map
+//# sourceMappingURL=wrapDisplayName.js.map

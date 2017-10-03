@@ -1,6 +1,8 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 /**
  * @name setObservableConfig
  * @description Sets a global observable transform that is applied automatically.
@@ -14,28 +16,24 @@ Object.defineProperty(exports, '__esModule', {
  * })
  */
 
-let _config = {
+var _config = {
   fromESObservable: null,
-  toESObservable: null,
-}
+  toESObservable: null
+};
 
-const configureObservable = function configureObservable(c) {
-  _config = c
-}
+var configureObservable = function configureObservable(c) {
+  _config = c;
+};
 
-const config = (exports.config = {
+var config = exports.config = {
   fromESObservable: function fromESObservable(observable) {
-    return typeof _config.fromESObservable === 'function'
-      ? _config.fromESObservable(observable)
-      : observable
+    return typeof _config.fromESObservable === 'function' ? _config.fromESObservable(observable) : observable;
   },
   toESObservable: function toESObservable(stream) {
-    return typeof _config.toESObservable === 'function'
-      ? _config.toESObservable(stream)
-      : stream
-  },
-})
+    return typeof _config.toESObservable === 'function' ? _config.toESObservable(stream) : stream;
+  }
+};
 
-exports.default = configureObservable
+exports.default = configureObservable;
 
-// # sourceMappingURL=setObservableConfig.js.map
+//# sourceMappingURL=setObservableConfig.js.map

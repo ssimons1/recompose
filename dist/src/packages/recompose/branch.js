@@ -1,22 +1,22 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _setDisplayName = require('./setDisplayName')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-const _createEagerFactory = require('./createEagerFactory')
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
 
-const _createEagerFactory2 = _interopRequireDefault(_createEagerFactory)
+var _createEagerFactory = require('./createEagerFactory');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _createEagerFactory2 = _interopRequireDefault(_createEagerFactory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name branch
@@ -27,36 +27,31 @@ function _interopRequireDefault(obj) {
  *  
  */
 
-const identity = function identity(Component) {
-  return Component
-}
+var identity = function identity(Component) {
+  return Component;
+};
 
-const branch = function branch(test, left) {
-  const right =
-    arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : identity
-  return function(BaseComponent) {
-    let leftFactory = void 0
-    let rightFactory = void 0
-    const Branch = function Branch(props) {
+var branch = function branch(test, left) {
+  var right = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : identity;
+  return function (BaseComponent) {
+    var leftFactory = void 0;
+    var rightFactory = void 0;
+    var Branch = function Branch(props) {
       if (test(props)) {
-        leftFactory =
-          leftFactory || (0, _createEagerFactory2.default)(left(BaseComponent))
-        return leftFactory(props)
+        leftFactory = leftFactory || (0, _createEagerFactory2.default)(left(BaseComponent));
+        return leftFactory(props);
       }
-      rightFactory =
-        rightFactory || (0, _createEagerFactory2.default)(right(BaseComponent))
-      return rightFactory(props)
-    }
+      rightFactory = rightFactory || (0, _createEagerFactory2.default)(right(BaseComponent));
+      return rightFactory(props);
+    };
 
     if (process.env.NODE_ENV !== 'production') {
-      return (0, _setDisplayName2.default)(
-        (0, _wrapDisplayName2.default)(BaseComponent, 'branch')
-      )(Branch)
+      return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'branch'))(Branch);
     }
-    return Branch
-  }
-}
+    return Branch;
+  };
+};
 
-exports.default = branch
+exports.default = branch;
 
-// # sourceMappingURL=branch.js.map
+//# sourceMappingURL=branch.js.map

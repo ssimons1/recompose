@@ -1,130 +1,101 @@
-const _react = require('react')
+// import React from 'react'
+// import { mount } from 'enzyme'
 
-const _react2 = _interopRequireDefault(_react)
+// import rxjs5Config from '../rxjsObservableConfig'
+// import rxjs4Config from '../rxjs4ObservableConfig'
+// import mostConfig from '../mostObservableConfig'
+// import xstreamConfig from '../xstreamObservableConfig'
+// import baconConfig from '../baconObservableConfig'
+// import kefirConfig from '../kefirObservableConfig'
+// import flydConfig from '../flydObservableConfig'
+// import setObservableConfig from '../setObservableConfig'
+// import componentFromStream from '../componentFromStream'
 
-const _enzyme = require('enzyme')
+// const testTransform = transform => {
+//   const Double = componentFromStream(transform)
+//   const wrapper = mount(<Double n={112} />)
+//   const div = wrapper.find('div')
+//   expect(div.text()).toBe('224')
+//   wrapper.setProps({ n: 358 })
+//   expect(div.text()).toBe('716')
+// }
 
-const _rxjsObservableConfig = require('../rxjsObservableConfig')
+// test('works with RxJS 5', () => {
+//   setObservableConfig(rxjs5Config)
+//   testTransform(props$ =>
+//     props$.map(({ n }) =>
+//       <div>
+//         {n * 2}
+//       </div>
+//     )
+//   )
+// })
 
-const _rxjsObservableConfig2 = _interopRequireDefault(_rxjsObservableConfig)
+// test('works with RxJS 4', () => {
+//   setObservableConfig(rxjs4Config)
+//   testTransform(props$ =>
+//     props$.map(({ n }) =>
+//       <div>
+//         {n * 2}
+//       </div>
+//     )
+//   )
+// })
 
-const _rxjs4ObservableConfig = require('../rxjs4ObservableConfig')
+// test('works with most', () => {
+//   setObservableConfig(mostConfig)
+//   testTransform(props$ =>
+//     props$.map(({ n }) =>
+//       <div>
+//         {n * 2}
+//       </div>
+//     )
+//   )
+// })
 
-const _rxjs4ObservableConfig2 = _interopRequireDefault(_rxjs4ObservableConfig)
+// test('works with xstream', () => {
+//   setObservableConfig(xstreamConfig)
+//   testTransform(props$ =>
+//     props$.map(({ n }) =>
+//       <div>
+//         {n * 2}
+//       </div>
+//     )
+//   )
+// })
 
-const _mostObservableConfig = require('../mostObservableConfig')
+// test('works with bacon', () => {
+//   setObservableConfig(baconConfig)
+//   testTransform(props$ =>
+//     props$.map(({ n }) =>
+//       <div>
+//         {n * 2}
+//       </div>
+//     )
+//   )
+// })
 
-const _mostObservableConfig2 = _interopRequireDefault(_mostObservableConfig)
+// test('works with kefir', () => {
+//   setObservableConfig(kefirConfig)
+//   testTransform(props$ =>
+//     props$.map(({ n }) =>
+//       <div>
+//         {n * 2}
+//       </div>
+//     )
+//   )
+// })
 
-const _xstreamObservableConfig = require('../xstreamObservableConfig')
+// test('works with flyd', () => {
+//   setObservableConfig(flydConfig)
+//   testTransform(props$ =>
+//     props$.map(({ n }) =>
+//       <div>
+//         {n * 2}
+//       </div>
+//     )
+//   )
+// })
+"use strict";
 
-const _xstreamObservableConfig2 = _interopRequireDefault(
-  _xstreamObservableConfig
-)
-
-const _baconObservableConfig = require('../baconObservableConfig')
-
-const _baconObservableConfig2 = _interopRequireDefault(_baconObservableConfig)
-
-const _kefirObservableConfig = require('../kefirObservableConfig')
-
-const _kefirObservableConfig2 = _interopRequireDefault(_kefirObservableConfig)
-
-const _flydObservableConfig = require('../flydObservableConfig')
-
-const _flydObservableConfig2 = _interopRequireDefault(_flydObservableConfig)
-
-const _setObservableConfig = require('../setObservableConfig')
-
-const _setObservableConfig2 = _interopRequireDefault(_setObservableConfig)
-
-const _componentFromStream = require('../componentFromStream')
-
-const _componentFromStream2 = _interopRequireDefault(_componentFromStream)
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
-
-const testTransform = function testTransform(transform) {
-  const Double = (0, _componentFromStream2.default)(transform)
-  const wrapper = (0, _enzyme.mount)(
-    _react2.default.createElement(Double, { n: 112 })
-  )
-  const div = wrapper.find('div')
-  expect(div.text()).toBe('224')
-  wrapper.setProps({ n: 358 })
-  expect(div.text()).toBe('716')
-}
-
-test('works with RxJS 5', () => {
-  ;(0, _setObservableConfig2.default)(_rxjsObservableConfig2.default)
-  testTransform(props$ =>
-    props$.map(_ref => {
-      const n = _ref.n
-      return _react2.default.createElement('div', null, n * 2)
-    })
-  )
-})
-
-test('works with RxJS 4', () => {
-  ;(0, _setObservableConfig2.default)(_rxjs4ObservableConfig2.default)
-  testTransform(props$ =>
-    props$.map(_ref2 => {
-      const n = _ref2.n
-      return _react2.default.createElement('div', null, n * 2)
-    })
-  )
-})
-
-test('works with most', () => {
-  ;(0, _setObservableConfig2.default)(_mostObservableConfig2.default)
-  testTransform(props$ =>
-    props$.map(_ref3 => {
-      const n = _ref3.n
-      return _react2.default.createElement('div', null, n * 2)
-    })
-  )
-})
-
-test('works with xstream', () => {
-  ;(0, _setObservableConfig2.default)(_xstreamObservableConfig2.default)
-  testTransform(props$ =>
-    props$.map(_ref4 => {
-      const n = _ref4.n
-      return _react2.default.createElement('div', null, n * 2)
-    })
-  )
-})
-
-test('works with bacon', () => {
-  ;(0, _setObservableConfig2.default)(_baconObservableConfig2.default)
-  testTransform(props$ =>
-    props$.map(_ref5 => {
-      const n = _ref5.n
-      return _react2.default.createElement('div', null, n * 2)
-    })
-  )
-})
-
-test('works with kefir', () => {
-  ;(0, _setObservableConfig2.default)(_kefirObservableConfig2.default)
-  testTransform(props$ =>
-    props$.map(_ref6 => {
-      const n = _ref6.n
-      return _react2.default.createElement('div', null, n * 2)
-    })
-  )
-})
-
-test('works with flyd', () => {
-  ;(0, _setObservableConfig2.default)(_flydObservableConfig2.default)
-  testTransform(props$ =>
-    props$.map(_ref7 => {
-      const n = _ref7.n
-      return _react2.default.createElement('div', null, n * 2)
-    })
-  )
-})
-
-// # sourceMappingURL=setObservableConfig-test.js.map
+//# sourceMappingURL=setObservableConfig-test.js.map

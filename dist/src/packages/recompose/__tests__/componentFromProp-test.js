@@ -1,34 +1,34 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _componentFromProp = require('../componentFromProp')
+var _enzyme = require('enzyme');
 
-const _componentFromProp2 = _interopRequireDefault(_componentFromProp)
+var _componentFromProp = require('../componentFromProp');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _componentFromProp2 = _interopRequireDefault(_componentFromProp);
 
-test('componentFromProp creates a component that takes a component as a prop and renders it with the rest of the props', () => {
-  const Container = (0, _componentFromProp2.default)('component')
-  expect(Container.displayName).toBe('componentFromProp(component)')
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  const Component = function Component(_ref) {
-    const pass = _ref.pass
-    return _react2.default.createElement('div', null, 'Pass: ', pass)
-  }
+test('componentFromProp creates a component that takes a component as a prop and renders it with the rest of the props', function () {
+  var Container = (0, _componentFromProp2.default)('component');
+  expect(Container.displayName).toBe('componentFromProp(component)');
 
-  const wrapper = (0, _enzyme.mount)(
-    _react2.default.createElement(Container, {
-      component: Component,
-      pass: 'through',
-    })
-  )
-  const div = wrapper.find('div')
-  expect(div.text()).toBe('Pass: through')
-})
+  var Component = function Component(_ref) {
+    var pass = _ref.pass;
+    return _react2.default.createElement(
+      'div',
+      null,
+      'Pass: ',
+      pass
+    );
+  };
 
-// # sourceMappingURL=componentFromProp-test.js.map
+  var wrapper = (0, _enzyme.mount)(_react2.default.createElement(Container, { component: Component, pass: 'through' }));
+  var div = wrapper.find('div');
+  expect(div.text()).toBe('Pass: through');
+});
+
+//# sourceMappingURL=componentFromProp-test.js.map

@@ -1,73 +1,59 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _sinon = require('sinon')
+var _enzyme = require('enzyme');
 
-const _sinon2 = _interopRequireDefault(_sinon)
+var _sinon = require('sinon');
 
-const _mapProps = require('../mapProps')
+var _sinon2 = _interopRequireDefault(_sinon);
 
-const _mapProps2 = _interopRequireDefault(_mapProps)
+var _mapProps = require('../mapProps');
 
-const _withState = require('../withState')
+var _mapProps2 = _interopRequireDefault(_mapProps);
 
-const _withState2 = _interopRequireDefault(_withState)
+var _withState = require('../withState');
 
-const _compose = require('../compose')
+var _withState2 = _interopRequireDefault(_withState);
 
-const _compose2 = _interopRequireDefault(_compose)
+var _compose = require('../compose');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _compose2 = _interopRequireDefault(_compose);
 
-function _toConsumableArray(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-      arr2[i] = arr[i]
-    }
-    return arr2
-  }
-  return Array.from(arr)
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) {
-  const target = {}
-  for (const i in obj) {
-    if (keys.indexOf(i) >= 0) continue
-    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue
-    target[i] = obj[i]
-  }
-  return target
-}
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-test('mapProps maps owner props to child props', () => {
-  const component = _sinon2.default.spy(() => null)
-  component.displayName = 'component'
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-  const StringConcat = (0, _compose2.default)(
-    (0, _withState2.default)('strings', 'updateStrings', ['do', 're', 'mi']),
-    (0, _mapProps2.default)(_ref => {
-      let strings = _ref.strings,
-        rest = _objectWithoutProperties(_ref, ['strings'])
+test('mapProps maps owner props to child props', function () {
+  var component = _sinon2.default.spy(function () {
+    return null;
+  });
+  component.displayName = 'component';
 
-      return Object.assign({}, rest, {
-        string: strings.join(''),
-      })
-    })
-  )(component)
+  var StringConcat = (0, _compose2.default)((0, _withState2.default)('strings', 'updateStrings', ['do', 're', 'mi']), (0, _mapProps2.default)(function (_ref) {
+    var strings = _ref.strings,
+        rest = _objectWithoutProperties(_ref, ['strings']);
 
-  expect(StringConcat.displayName).toBe('withState(mapProps(component))')
-  ;(0, _enzyme.mount)(_react2.default.createElement(StringConcat, null))
-  const updateStrings = component.firstCall.args[0].updateStrings
+    return Object.assign({}, rest, {
+      string: strings.join('')
+    });
+  }))(component);
 
-  updateStrings(strings => [].concat(_toConsumableArray(strings), ['fa']))
+  expect(StringConcat.displayName).toBe('withState(mapProps(component))');
 
-  expect(component.firstCall.args[0].string).toBe('doremi')
-  expect(component.secondCall.args[0].string).toBe('doremifa')
-})
+  (0, _enzyme.mount)(_react2.default.createElement(StringConcat, null));
+  var updateStrings = component.firstCall.args[0].updateStrings;
 
-// # sourceMappingURL=mapProps-test.js.map
+  updateStrings(function (strings) {
+    return [].concat(_toConsumableArray(strings), ['fa']);
+  });
+
+  expect(component.firstCall.args[0].string).toBe('doremi');
+  expect(component.secondCall.args[0].string).toBe('doremifa');
+});
+
+//# sourceMappingURL=mapProps-test.js.map

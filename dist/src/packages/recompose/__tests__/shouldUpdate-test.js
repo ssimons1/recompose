@@ -1,61 +1,61 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _sinon = require('sinon')
+var _enzyme = require('enzyme');
 
-const _sinon2 = _interopRequireDefault(_sinon)
+var _sinon = require('sinon');
 
-const _shouldUpdate = require('../shouldUpdate')
+var _sinon2 = _interopRequireDefault(_sinon);
 
-const _shouldUpdate2 = _interopRequireDefault(_shouldUpdate)
+var _shouldUpdate = require('../shouldUpdate');
 
-const _compose = require('../compose')
+var _shouldUpdate2 = _interopRequireDefault(_shouldUpdate);
 
-const _compose2 = _interopRequireDefault(_compose)
+var _compose = require('../compose');
 
-const _withState = require('../withState')
+var _compose2 = _interopRequireDefault(_compose);
 
-const _withState2 = _interopRequireDefault(_withState)
+var _withState = require('../withState');
 
-const _utils = require('./utils')
+var _withState2 = _interopRequireDefault(_withState);
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _utils = require('./utils');
 
-test('shouldUpdate implements shouldComponentUpdate', () => {
-  const component = _sinon2.default.spy(() => null)
-  component.displayName = 'component'
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  const initialTodos = ['eat', 'drink', 'sleep']
-  const Todos = (0, _compose2.default)(
-    (0, _withState2.default)('todos', 'updateTodos', initialTodos),
-    (0, _shouldUpdate2.default)(
-      (props, nextProps) => props.todos !== nextProps.todos
-    ),
-    _utils.countRenders
-  )(component)
+test('shouldUpdate implements shouldComponentUpdate', function () {
+  var component = _sinon2.default.spy(function () {
+    return null;
+  });
+  component.displayName = 'component';
 
-  expect(Todos.displayName).toBe(
-    'withState(shouldUpdate(countRenders(component)))'
-  )
-  ;(0, _enzyme.mount)(_react2.default.createElement(Todos, null))
-  const updateTodos = component.firstCall.args[0].updateTodos
+  var initialTodos = ['eat', 'drink', 'sleep'];
+  var Todos = (0, _compose2.default)((0, _withState2.default)('todos', 'updateTodos', initialTodos), (0, _shouldUpdate2.default)(function (props, nextProps) {
+    return props.todos !== nextProps.todos;
+  }), _utils.countRenders)(component);
 
-  expect(component.lastCall.args[0].todos).toBe(initialTodos)
-  expect(component.lastCall.args[0].renderCount).toBe(1)
+  expect(Todos.displayName).toBe('withState(shouldUpdate(countRenders(component)))');
+
+  (0, _enzyme.mount)(_react2.default.createElement(Todos, null));
+  var updateTodos = component.firstCall.args[0].updateTodos;
+
+
+  expect(component.lastCall.args[0].todos).toBe(initialTodos);
+  expect(component.lastCall.args[0].renderCount).toBe(1);
 
   // Does not re-render
-  updateTodos(initialTodos)
-  expect(component.calledOnce).toBe(true)
+  updateTodos(initialTodos);
+  expect(component.calledOnce).toBe(true);
 
-  updateTodos(todos => todos.slice(0, -1))
-  expect(component.calledTwice).toBe(true)
-  expect(component.lastCall.args[0].todos).toEqual(['eat', 'drink'])
-  expect(component.lastCall.args[0].renderCount).toBe(2)
-})
+  updateTodos(function (todos) {
+    return todos.slice(0, -1);
+  });
+  expect(component.calledTwice).toBe(true);
+  expect(component.lastCall.args[0].todos).toEqual(['eat', 'drink']);
+  expect(component.lastCall.args[0].renderCount).toBe(2);
+});
 
-// # sourceMappingURL=shouldUpdate-test.js.map
+//# sourceMappingURL=shouldUpdate-test.js.map

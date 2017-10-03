@@ -1,39 +1,34 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _renameProps = require('../renameProps')
+var _enzyme = require('enzyme');
 
-const _renameProps2 = _interopRequireDefault(_renameProps)
+var _renameProps = require('../renameProps');
 
-const _withProps = require('../withProps')
+var _renameProps2 = _interopRequireDefault(_renameProps);
 
-const _withProps2 = _interopRequireDefault(_withProps)
+var _withProps = require('../withProps');
 
-const _compose = require('../compose')
+var _withProps2 = _interopRequireDefault(_withProps);
 
-const _compose2 = _interopRequireDefault(_compose)
+var _compose = require('../compose');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _compose2 = _interopRequireDefault(_compose);
 
-test('renameProps renames props', () => {
-  const StringConcat = (0, _compose2.default)(
-    (0, _withProps2.default)({ 'data-so': 123, 'data-la': 456 }),
-    (0, _renameProps2.default)({ 'data-so': 'data-do', 'data-la': 'data-fa' })
-  )('div')
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  expect(StringConcat.displayName).toBe('withProps(renameProps(div))')
+test('renameProps renames props', function () {
+  var StringConcat = (0, _compose2.default)((0, _withProps2.default)({ 'data-so': 123, 'data-la': 456 }), (0, _renameProps2.default)({ 'data-so': 'data-do', 'data-la': 'data-fa' }))('div');
 
-  const div = (0, _enzyme.mount)(
-    _react2.default.createElement(StringConcat, null)
-  ).find('div')
+  expect(StringConcat.displayName).toBe('withProps(renameProps(div))');
 
-  expect(div.prop('data-do')).toBe(123)
-  expect(div.prop('data-fa')).toBe(456)
-})
+  var div = (0, _enzyme.mount)(_react2.default.createElement(StringConcat, null)).find('div');
 
-// # sourceMappingURL=renameProps-test.js.map
+  expect(div.prop('data-do')).toBe(123);
+  expect(div.prop('data-fa')).toBe(456);
+});
+
+//# sourceMappingURL=renameProps-test.js.map

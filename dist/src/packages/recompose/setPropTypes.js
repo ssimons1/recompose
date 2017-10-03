@@ -1,14 +1,14 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _setStatic = require('./setStatic')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _setStatic2 = _interopRequireDefault(_setStatic)
+var _setStatic = require('./setStatic');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _setStatic2 = _interopRequireDefault(_setStatic);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name setPropTypes
@@ -16,10 +16,10 @@ function _interopRequireDefault(obj) {
  * @param {object} propTypes 
  */
 
-const setPropTypes = function setPropTypes(propTypes) {
-  return (0, _setStatic2.default)('propTypes', propTypes)
-}
+var setPropTypes = function setPropTypes(propTypes) {
+  return (0, _setStatic2.default)('propTypes', propTypes);
+};
 
-exports.default = setPropTypes
+exports.default = setPropTypes;
 
-// # sourceMappingURL=setPropTypes.js.map
+//# sourceMappingURL=setPropTypes.js.map

@@ -1,26 +1,26 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _shouldUpdate = require('./shouldUpdate')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _shouldUpdate2 = _interopRequireDefault(_shouldUpdate)
+var _shouldUpdate = require('./shouldUpdate');
 
-const _shallowEqual = require('./shallowEqual')
+var _shouldUpdate2 = _interopRequireDefault(_shouldUpdate);
 
-const _shallowEqual2 = _interopRequireDefault(_shallowEqual)
+var _shallowEqual = require('./shallowEqual');
 
-const _setDisplayName = require('./setDisplayName')
+var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-const _setDisplayName2 = _interopRequireDefault(_setDisplayName)
+var _setDisplayName = require('./setDisplayName');
 
-const _wrapDisplayName = require('./wrapDisplayName')
+var _setDisplayName2 = _interopRequireDefault(_setDisplayName);
 
-const _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName)
+var _wrapDisplayName = require('./wrapDisplayName');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _wrapDisplayName2 = _interopRequireDefault(_wrapDisplayName);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name pure
@@ -28,20 +28,18 @@ function _interopRequireDefault(obj) {
  * 
  */
 
-const pure = function pure(BaseComponent) {
-  const hoc = (0, _shouldUpdate2.default)(
-    (props, nextProps) => !(0, _shallowEqual2.default)(props, nextProps)
-  )
+var pure = function pure(BaseComponent) {
+  var hoc = (0, _shouldUpdate2.default)(function (props, nextProps) {
+    return !(0, _shallowEqual2.default)(props, nextProps);
+  });
 
   if (process.env.NODE_ENV !== 'production') {
-    return (0, _setDisplayName2.default)(
-      (0, _wrapDisplayName2.default)(BaseComponent, 'pure')
-    )(hoc(BaseComponent))
+    return (0, _setDisplayName2.default)((0, _wrapDisplayName2.default)(BaseComponent, 'pure'))(hoc(BaseComponent));
   }
 
-  return hoc(BaseComponent)
-}
+  return hoc(BaseComponent);
+};
 
-exports.default = pure
+exports.default = pure;
 
-// # sourceMappingURL=pure.js.map
+//# sourceMappingURL=pure.js.map

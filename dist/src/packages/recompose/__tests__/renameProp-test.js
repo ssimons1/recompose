@@ -1,37 +1,32 @@
-const _react = require('react')
+'use strict';
 
-const _react2 = _interopRequireDefault(_react)
+var _react = require('react');
 
-const _enzyme = require('enzyme')
+var _react2 = _interopRequireDefault(_react);
 
-const _renameProp = require('../renameProp')
+var _enzyme = require('enzyme');
 
-const _renameProp2 = _interopRequireDefault(_renameProp)
+var _renameProp = require('../renameProp');
 
-const _withProps = require('../withProps')
+var _renameProp2 = _interopRequireDefault(_renameProp);
 
-const _withProps2 = _interopRequireDefault(_withProps)
+var _withProps = require('../withProps');
 
-const _compose = require('../compose')
+var _withProps2 = _interopRequireDefault(_withProps);
 
-const _compose2 = _interopRequireDefault(_compose)
+var _compose = require('../compose');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _compose2 = _interopRequireDefault(_compose);
 
-test('renameProp renames a single prop', () => {
-  const StringConcat = (0, _compose2.default)(
-    (0, _withProps2.default)({ 'data-so': 123, 'data-la': 456 }),
-    (0, _renameProp2.default)('data-so', 'data-do')
-  )('div')
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  expect(StringConcat.displayName).toBe('withProps(renameProp(div))')
+test('renameProp renames a single prop', function () {
+  var StringConcat = (0, _compose2.default)((0, _withProps2.default)({ 'data-so': 123, 'data-la': 456 }), (0, _renameProp2.default)('data-so', 'data-do'))('div');
 
-  const div = (0, _enzyme.mount)(
-    _react2.default.createElement(StringConcat, null)
-  ).find('div')
-  expect(div.props()).toEqual({ 'data-do': 123, 'data-la': 456 })
-})
+  expect(StringConcat.displayName).toBe('withProps(renameProp(div))');
 
-// # sourceMappingURL=renameProp-test.js.map
+  var div = (0, _enzyme.mount)(_react2.default.createElement(StringConcat, null)).find('div');
+  expect(div.props()).toEqual({ 'data-do': 123, 'data-la': 456 });
+});
+
+//# sourceMappingURL=renameProp-test.js.map

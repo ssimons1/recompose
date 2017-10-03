@@ -1,14 +1,14 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+'use strict';
 
-const _hoistNonReactStatics = require('hoist-non-react-statics')
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-const _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics)
+var _hoistNonReactStatics = require('hoist-non-react-statics');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj }
-}
+var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @name hoistStatics
@@ -17,14 +17,14 @@ function _interopRequireDefault(obj) {
  * 
  */
 
-const hoistStatics = function hoistStatics(higherOrderComponent) {
-  return function(BaseComponent) {
-    const NewComponent = higherOrderComponent(BaseComponent)
-    ;(0, _hoistNonReactStatics2.default)(NewComponent, BaseComponent)
-    return NewComponent
-  }
-}
+var hoistStatics = function hoistStatics(higherOrderComponent) {
+  return function (BaseComponent) {
+    var NewComponent = higherOrderComponent(BaseComponent);
+    (0, _hoistNonReactStatics2.default)(NewComponent, BaseComponent);
+    return NewComponent;
+  };
+};
 
-exports.default = hoistStatics
+exports.default = hoistStatics;
 
-// # sourceMappingURL=hoistStatics.js.map
+//# sourceMappingURL=hoistStatics.js.map
